@@ -13,7 +13,6 @@ software=(
         unzip
         curl
         git
-        wl-clipboard
         ripgrep
         fd-find
 
