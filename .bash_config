@@ -4,6 +4,10 @@ export PATH=$PATH:~/opt/flutter/bin
 # aliases
 alias vi='nvim'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# set vi mode
+set -o vi
+bind '"jk":vi-movement-mode'
 # set tmux to open on start of interactive shell
 # code below checks whether tmux exists on the system
 # we're in an interactive shell
@@ -16,7 +20,4 @@ fi
 
 
 
-#set vim keybinds
-set editing-mode vi
-set keymap vi
-bind '"jk":"\e"'
+
