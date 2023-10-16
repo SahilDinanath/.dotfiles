@@ -1,6 +1,9 @@
 # add flutter to path
 export PATH=$PATH:~/opt/flutter/bin
-
+# add go to path
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 # aliases
 alias vi='nvim'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
