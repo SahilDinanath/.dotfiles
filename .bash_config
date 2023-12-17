@@ -1,5 +1,5 @@
 # add flutter to path
-export PATH=$PATH:~/opt/flutter/bin
+# export PATH=$PATH:~/opt/flutter/bin
 # add go to path
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
@@ -9,8 +9,8 @@ alias vi='nvim'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # set vi mode
-set -o vi
-bind '"jk":vi-movement-mode'
+#set -o vi
+#bind '"jk":vi-movement-mode'
 # set tmux to open on start of interactive shell
 # code below checks whether tmux exists on the system
 # we're in an interactive shell

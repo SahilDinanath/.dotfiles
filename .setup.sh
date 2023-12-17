@@ -7,6 +7,8 @@ software=(
         timeshift
         deja-dup
 
+        #Neovim
+        #debian
         ninja-build
         gettext
         cmake
@@ -15,6 +17,12 @@ software=(
         git
         ripgrep
         fd-find
+        #arch
+        base-devel
+        ninja
+        #fedora
+        gcc
+        make
 
 	neofetch
 )
@@ -28,15 +36,24 @@ flatpak_software=(
 	org.videolan.VLC
 )
 
-#change command as necessary
-#update system
-sudo apt update
-sudo apt upgrade -y
+mv ~/.setup.sh ~/Documents/
+
+#update system and assign package manager install command to variable
+if command -v apt &>/dev/null; then
+  sudo apt update && sudo apt upgrade -y
+  package_manager="apt install"
+elif command -v dnf &>/dev/null; then
+  sudo dnf upgrade -y
+  package_manager="dnf install"
+else 
+  echo "no supported package manager"
+  exit 1;
+fi
 
 #install software
 for app in ${software[*]}
 do
-    sudo apt install $app -y
+    sudo $package_manager $app -y
 done
 
 #clone and build software
@@ -44,12 +61,13 @@ mkdir ~/opt
 
 #install neovim
 git clone https://github.com/neovim/neovim ~/opt/neovim/
+git checkout stable
 cd ~/opt/neovim
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 #for debian
-cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+#cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 #else uncomment
-#make install
+sudo make install
 
 #clone personal neovim config
 git clone https://github.com/SahilDinanath/Nvim_Config.git ~/.config/nvim/
@@ -57,7 +75,6 @@ git clone https://github.com/SahilDinanath/Nvim_Config.git ~/.config/nvim/
 #tmux setup
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/.tmux/plugins/tpm/
 tmux source ~/.config/tmux/tmux.conf
-
 
 #install lazygit
 cd ~/opt
@@ -78,6 +95,7 @@ for app in ${flatpak_software[*]}
 do
     flatpak install flathub $app -y
 done
+
 #install dotfiles
 #replace with your repo
 git clone --bare https://github.com/SahilDinanath/.dotfiles.git $HOME/.dotfiles
@@ -99,4 +117,3 @@ config config status.showUntrackedFiles no
 echo '. ~/.bash_config' >> ~/.bashrc
 
 source ~/.bashrc
-
