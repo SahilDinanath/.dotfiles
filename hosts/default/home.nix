@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "sahil";
@@ -17,7 +19,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -69,29 +71,28 @@
   #  /etc/profiles/per-user/sahil/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-     EDITOR = "nvim";
+    EDITOR = "nvim";
   };
-  
+
   programs.git = {
-  enable = true;
-  userName = "Sahil Dinanath";
-  userEmail = "sahildinanath@gmail.com";
-  extraConfig = {
-  init.defaultBranch = "main";
-  safe.directory = "/etc/nixos";
+    enable = true;
+    userName = "Sahil Dinanath";
+    userEmail = "sahildinanath@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+      safe.directory = "/etc/nixos";
+    };
   };
-  };
-  
+
   programs.neovim = {
-	enable = true;
-	viAlias = true;
-	vimAlias = true;
-	
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
   };
 
   programs.bash = {
-	enable = true;
-	initExtra = "
+    enable = true;
+    initExtra = "
 	# set tmux to open on start of interactive shell
 	# code below checks whether tmux exists on the system
 	# we're in an interactive shell
@@ -101,62 +102,60 @@
   		# Create session 'main' or attach to 'main' if already exists.
   		tmux new-session -A -s main
 	fi";
-};
+  };
 
-programs.tmux = {
-  enable = true;
-  historyLimit = 100000;
-  baseIndex = 1;
-  escapeTime = 0;
-  keyMode = "vi";
-  mouse = true;
-  prefix = "C-Space";
-# makes tmux not mess up colours 
-  terminal = "tmux-256color";
+  programs.tmux = {
+    enable = true;
+    historyLimit = 100000;
+    baseIndex = 1;
+    escapeTime = 0;
+    keyMode = "vi";
+    mouse = true;
+    prefix = "C-Space";
+    # makes tmux not mess up colours
+    terminal = "tmux-256color";
 
-
-  plugins = with pkgs;[
-       tmuxPlugins.sensible
+    plugins = with pkgs; [
+      tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator
-       {
-       plugin = tmuxPlugins.resurrect;
-       extraConfig = "set -g @resurrect-capture-pane-content 'on'";
-       }
-  
-       {
-       plugin = tmuxPlugins.continuum;
-       extraConfig = "set -g @continuum-restore 'on'";
-       }
-  
-       ];
-  extraConfig = ''
-# options
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = "set -g @resurrect-capture-pane-content 'on'";
+      }
 
-#add whatever this does
-set-option -g focus-events on
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = "set -g @continuum-restore 'on'";
+      }
+    ];
+    extraConfig = ''
+      # options
 
-#set clipboard 
-set -s set-clipboard external
+      #add whatever this does
+      set-option -g focus-events on
 
-# Keymaps
-# alt+H/L to move between windows
-bind -n M-h previous-window
-bind -n M-l next-window
+      #set clipboard
+      set -s set-clipboard external
 
-#changes copying in tmux buffers
-#bind-key -T copy-mode-vi v send-keys -X begin-selection
-#bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-#bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      # Keymaps
+      # alt+H/L to move between windows
+      bind -n M-h previous-window
+      bind -n M-l next-window
 
-#open panes in current directory
-bind '"' split-window -v -c "#{pane_current_path}"
-bind % split-window -h -c "#{pane_current_path}"
-bind c new-window -c "#{pane_current_path}"
+      #changes copying in tmux buffers
+      #bind-key -T copy-mode-vi v send-keys -X begin-selection
+      #bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      #bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
-#fullscreen pane to be the same as window manager
-bind -r m resize-pane -Z
-  '';
-};
+      #open panes in current directory
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
+
+      #fullscreen pane to be the same as window manager
+      bind -r m resize-pane -Z
+    '';
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
