@@ -115,7 +115,6 @@
     keyMode = "vi";
     mouse = true;
     prefix = "C-Space";
-    shell = "\${pkgs.fish}/bin/fish";
     # makes tmux not mess up colours
     terminal = "tmux-256color";
 
@@ -134,6 +133,7 @@
     ];
     extraConfig = ''
       # options
+      set-option -g default-command fish
       #add whatever this does
       set-option -g focus-events on
 
