@@ -90,6 +90,9 @@
     vimAlias = true;
   };
 
+  programs.fish = {
+    enable = true;
+  };
   programs.bash = {
     enable = true;
     initExtra = "
@@ -112,6 +115,7 @@
     keyMode = "vi";
     mouse = true;
     prefix = "C-Space";
+    shell = "\${pkgs.fish}/bin/fish";
     # makes tmux not mess up colours
     terminal = "tmux-256color";
 
@@ -130,7 +134,6 @@
     ];
     extraConfig = ''
       # options
-
       #add whatever this does
       set-option -g focus-events on
 
@@ -154,6 +157,8 @@
 
       #fullscreen pane to be the same as window manager
       bind -r m resize-pane -Z
+
+
     '';
   };
 
