@@ -69,83 +69,12 @@
     EDITOR = "nvim";
   };
 
-  # programs.git = {
-  #   enable = true;
-  #   userName = "Sahil Dinanath";
-  #   userEmail = "sahildinanath@gmail.com";
-  #   extraConfig = {
-  #     init.defaultBranch = "main";
-  #     safe.directory = "/etc/nixos";
-  #   };
-  # };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    defaultEditor = true;
-    #
-    #    plugins = with pkgs.vimPlugins; [
-    #       vim-tmux-navigator
-    #        lazygit-nvim
-    # vim-sleuth
-    #
-    # telescope-nvim
-    # telescope-fzf-native-nvim
-    #
-    # nvim-cmp
-    # nvim-lspconfig
-    #
-    # neodev-nvim
-    #
-    #
-    #
-    #
-    #
-    #
-    #    ];
-    #
-    extraPackages = with pkgs; [
-      wl-clipboard
-      xclip
-      lazygit
-    ];
-  };
-
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      est = "eza --tree --color=auto --group-directories-first";
-      es = "eza --color=auto --group-directories-first";
-    };
-    functions = {
-      cde = ''
-        function cdl
-            cd $argv[1]; es
-        end
-      '';
-    };
-
-    interactiveShellInit = "zoxide init fish | source";
-  };
-  programs.bash = {
-    enable = true;
-    initExtra = "
-	# set tmux to open on start of interactive shell
-	# code below checks whether tmux exists on the system
-	# we're in an interactive shell
-	# that tmux doesn't try to run within itself
-	if [ -n \"$PS1\" ] && [ -z \"$TMUX\" ]; then
- 	 	# Adapted from https://unix.stackexchange.com/a/176885/347104
-  		# Create session 'main' or attach to 'main' if already exists.
-  		tmux new-session -A -s main
-	fi";
-  };
-
   imports = [
     ../../packages/git/git.nix
     ../../packages/tmux/tmux.nix
+    ../../packages/bash/bash.nix
+    ../../packages/fish/fish.nix
+    ../../packages/nvim/nvim.nix
   ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
