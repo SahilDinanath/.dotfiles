@@ -128,9 +128,48 @@
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       firefox
+      steam
       #  thunderbird
+      #apps
+      discord
+      alacritty
+      spotify
+      vlc
+      deja-dup
+      heroic
+      lutris
+      neofetch
+      #tools
+      neovim
+      git
+      #neovim dependencies
+      cargo
+      ripgrep
+
+      #packages
+      lshw
+
+      #terminal
+      tmux
+      alejandra
+      eza
+      zoxide
+      fzf
+
+      #dev-packages
+      gcc
     ];
   };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+  ];
+  programs.steam.enable = true;
 
   home-manager = {
     #also pass inputs to home-manager modules
@@ -139,37 +178,6 @@
       "sahil" = import ./home.nix;
     };
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-
-    #apps
-    discord
-    alacritty
-    spotify
-    vlc
-    deja-dup
-    heroic
-    lutris
-    neofetch
-    #tools
-    neovim
-    git
-    #neovim dependencies
-    cargo
-    ripgrep
-
-    #packages
-    lshw
-  ];
-  programs.steam.enable = true;
-  programs.fish.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -21,11 +21,6 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    tmux
-    alejandra
-    eza
-    zoxide
-    fzf
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -40,7 +35,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -122,7 +116,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      est = "eza --tree --color=auto";
+      est = "eza --tree --color=auto --group-directories-first";
       es = "eza --color=auto --group-directories-first";
     };
     functions = {
