@@ -3,9 +3,7 @@
   pkgs,
   ...
 }: {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "sahil";
+  # Home Manager needs a bit of information about you and the paths it should manage. home.username = "sahil";
   home.homeDirectory = "/home/sahil";
 
   # This value determines the Home Manager release that your configuration is
@@ -120,6 +118,13 @@
 
   programs.fish = {
     enable = true;
+    functions = {
+      cdl = ''
+        function cdl
+            cd $argv[1]; ls
+        end
+      '';
+    };
   };
   programs.bash = {
     enable = true;
@@ -146,6 +151,7 @@
     prefix = "C-Space";
     # makes tmux not mess up colours
     terminal = "tmux-256color";
+    shell = "${pkgs.fish}/bin/fish";
 
     plugins = with pkgs; [
       tmuxPlugins.sensible
@@ -161,8 +167,6 @@
       }
     ];
     extraConfig = ''
-      # options
-      set-option -g default-command fish
       #add whatever this does
       set-option -g focus-events on
 
