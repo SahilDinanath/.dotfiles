@@ -121,6 +121,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sahil = {
     isNormalUser = true;
@@ -142,6 +144,7 @@
       #tools
       neovim
       git
+      lazygit
       #neovim dependencies
       cargo
       ripgrep
@@ -161,15 +164,14 @@
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  programs.steam.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
   ];
-  programs.steam.enable = true;
 
   home-manager = {
     #also pass inputs to home-manager modules
