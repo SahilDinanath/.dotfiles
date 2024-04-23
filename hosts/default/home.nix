@@ -120,8 +120,8 @@
   programs.fish = {
     enable = true;
     shellAbbrs = {
-      est = "eza --tree --color=always";
-      es = "eza --icons=auto --color=auto";
+      "est" = "eza --tree --color=always";
+      "es" = "eza --icons=auto --color=auto";
     };
     functions = {
       cdl = ''
