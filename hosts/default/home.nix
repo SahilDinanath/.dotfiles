@@ -23,6 +23,7 @@
     # pkgs.hello
     tmux
     alejandra
+    eza
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -118,6 +119,10 @@
 
   programs.fish = {
     enable = true;
+    shellAbbrs = {
+      est = "eza --tree --color=always";
+      es = "eza --icons=auto --color=auto";
+    };
     functions = {
       cdl = ''
         function cdl
