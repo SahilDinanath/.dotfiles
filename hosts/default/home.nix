@@ -70,11 +70,11 @@
   };
 
   imports = [
-    ../../packages/git/git.nix
-    ../../packages/tmux/tmux.nix
-    ../../packages/bash/bash.nix
-    ../../packages/fish/fish.nix
-    ../../packages/nvim/nvim.nix
+    ../../configs/git/git.nix
+    ../../configs/tmux/tmux.nix
+    ../../configs/bash/bash.nix
+    ../../configs/fish/fish.nix
+    ../../configs/nvim/nvim.nix
   ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
