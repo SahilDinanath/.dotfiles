@@ -24,6 +24,8 @@
     tmux
     alejandra
     eza
+    zoxide
+    fzf
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -110,26 +112,28 @@
     #
     #    ];
     #
-    #    extraPackages = with pkgs; [
-    #      wl-clipboard
-    #      xclip
-    #      lazygit
-    #    ];
+    extraPackages = with pkgs; [
+      wl-clipboard
+      xclip
+      lazygit
+    ];
   };
 
   programs.fish = {
     enable = true;
     shellAliases = {
-      est = "eza --tree --color=always";
-      es = "eza --icons=auto --color=auto";
+      est = "eza --tree --color=auto";
+      es = "eza --color=auto --group-directories-first";
     };
     functions = {
-      cdl = ''
+      cde = ''
         function cdl
-            cd $argv[1]; eza
+            cd $argv[1]; es
         end
       '';
     };
+
+    interactiveShellInit = "zoxide init fish | source";
   };
   programs.bash = {
     enable = true;
