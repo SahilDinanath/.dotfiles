@@ -69,15 +69,15 @@
     EDITOR = "nvim";
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Sahil Dinanath";
-    userEmail = "sahildinanath@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-      safe.directory = "/etc/nixos";
-    };
-  };
+  # programs.git = {
+  #   enable = true;
+  #   userName = "Sahil Dinanath";
+  #   userEmail = "sahildinanath@gmail.com";
+  #   extraConfig = {
+  #     init.defaultBranch = "main";
+  #     safe.directory = "/etc/nixos";
+  #   };
+  # };
 
   programs.neovim = {
     enable = true;
@@ -198,6 +198,9 @@
     '';
   };
 
+  imports = [
+    ../../packages/git/git.nix
+  ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
