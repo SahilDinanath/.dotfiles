@@ -119,14 +119,14 @@
 
   programs.fish = {
     enable = true;
-    shellAbbrs = {
-      "est" = "eza --tree --color=always";
-      "es" = "eza --icons=auto --color=auto";
+    shellAliases = {
+      est = "eza --tree --color=always";
+      es = "eza --icons=auto --color=auto";
     };
     functions = {
       cdl = ''
         function cdl
-            cd $argv[1]; ls
+            cd $argv[1]; eza
         end
       '';
     };
