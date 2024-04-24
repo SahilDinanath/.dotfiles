@@ -1,24 +1,19 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
 building the system configuration...
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-error:
-       … while calling the 'derivationStrict' builtin
-
-         at /builtin/derivation.nix:9:12: (source not available)
-
-       … while evaluating derivation 'nixos-system-nixos-24.05.20240421.6143fc5'
-         whose name attribute is located at /nix/store/cc0ribc27c349w1v2anrby7z8kigy5pq-source/pkgs/stdenv/generic/make-derivation.nix:331:7
-
-       … while evaluating attribute 'buildCommand' of derivation 'nixos-system-nixos-24.05.20240421.6143fc5'
-
-         at /nix/store/cc0ribc27c349w1v2anrby7z8kigy5pq-source/nixos/modules/system/activation/top-level.nix:53:5:
-
-           52|     passAsFile = [ "extraDependencies" ];
-           53|     buildCommand = systemBuilder;
-             |     ^
-           54|
-
-       (stack trace truncated; use '--show-trace' to show the full trace)
-
-       error: A definition for option `specialisation.on-the-go.configuration.system.nixos.label' is not of type `string matching the pattern [a-zA-Z0-9:_\.-]*'. Definition values:
-       - In `/nix/store/cc0ribc27c349w1v2anrby7z8kigy5pq-source/nixos/modules/misc/label.nix': "Remember, no Nvidia.-24.05.20240421.6143fc5"
+these 5 derivations will be built:
+  /nix/store/4srgd7ynx60wr1w3lfs6yn94zdylfcls-issue.drv
+  /nix/store/2jsi80zfkdd0qapqyr050l4k3q4s74ax-etc.drv
+  /nix/store/pgxyyc4cpvkqjfr88ipzcdzfk6qqryx4-boot.json.drv
+  /nix/store/860njc122lv9sgrlav9akay6dk5sp69n-nixos-system-nixos-remember-no-nvidia-24.05.20240421.6143fc5.drv
+  /nix/store/49k9x4spcxpd6y2jap7dfwwcwyy62a80-nixos-system-nixos-24.05.20240421.6143fc5.drv
+building '/nix/store/pgxyyc4cpvkqjfr88ipzcdzfk6qqryx4-boot.json.drv'...
+building '/nix/store/4srgd7ynx60wr1w3lfs6yn94zdylfcls-issue.drv'...
+building '/nix/store/2jsi80zfkdd0qapqyr050l4k3q4s74ax-etc.drv'...
+building '/nix/store/860njc122lv9sgrlav9akay6dk5sp69n-nixos-system-nixos-remember-no-nvidia-24.05.20240421.6143fc5.drv'...
+building '/nix/store/49k9x4spcxpd6y2jap7dfwwcwyy62a80-nixos-system-nixos-24.05.20240421.6143fc5.drv'...
+activating the configuration...
+setting up /etc...
+reloading user units for sahil...
+restarting sysinit-reactivation.target
+the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service
