@@ -1,19 +1,24 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
 building the system configuration...
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-these 3 derivations will be built:
-  /nix/store/zp4rvmqfdnfl8vl9x4fy36a0513px9gf-user-environment.drv
-  /nix/store/s1qcs59pqaz5qm6lmqb571d882haqy7v-etc.drv
-  /nix/store/i3l4k2h2wr6hfgsjd0f9k6sjlw3vz1nj-nixos-system-nixos-24.05.20240421.6143fc5.drv
-these 2 paths will be fetched (2.43 MiB download, 5.99 MiB unpacked):
-  /nix/store/8iafkixj71qgpkiwp1alwsf3y10g50mi-bat-0.24.0
-  /nix/store/lc3lwa1qv9jvmxwg8fyli326616brk86-tldr-1.6.1
-copying path '/nix/store/8iafkixj71qgpkiwp1alwsf3y10g50mi-bat-0.24.0' from 'https://cache.nixos.org'...
-copying path '/nix/store/lc3lwa1qv9jvmxwg8fyli326616brk86-tldr-1.6.1' from 'https://cache.nixos.org'...
-building '/nix/store/zp4rvmqfdnfl8vl9x4fy36a0513px9gf-user-environment.drv'...
-building '/nix/store/s1qcs59pqaz5qm6lmqb571d882haqy7v-etc.drv'...
-building '/nix/store/i3l4k2h2wr6hfgsjd0f9k6sjlw3vz1nj-nixos-system-nixos-24.05.20240421.6143fc5.drv'...
-activating the configuration...
-setting up /etc...
-reloading user units for sahil...
-restarting sysinit-reactivation.target
+error:
+       … while calling the 'derivationStrict' builtin
+
+         at /builtin/derivation.nix:9:12: (source not available)
+
+       … while evaluating derivation 'nixos-system-nixos-24.05.20240421.6143fc5'
+         whose name attribute is located at /nix/store/cc0ribc27c349w1v2anrby7z8kigy5pq-source/pkgs/stdenv/generic/make-derivation.nix:331:7
+
+       … while evaluating attribute 'buildCommand' of derivation 'nixos-system-nixos-24.05.20240421.6143fc5'
+
+         at /nix/store/cc0ribc27c349w1v2anrby7z8kigy5pq-source/nixos/modules/system/activation/top-level.nix:53:5:
+
+           52|     passAsFile = [ "extraDependencies" ];
+           53|     buildCommand = systemBuilder;
+             |     ^
+           54|
+
+       (stack trace truncated; use '--show-trace' to show the full trace)
+
+       error: A definition for option `specialisation.on-the-go.configuration.system.nixos.label' is not of type `string matching the pattern [a-zA-Z0-9:_\.-]*'. Definition values:
+       - In `/nix/store/cc0ribc27c349w1v2anrby7z8kigy5pq-source/nixos/modules/misc/label.nix': "Remember, no Nvidia.-24.05.20240421.6143fc5"

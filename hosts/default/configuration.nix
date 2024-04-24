@@ -120,7 +120,7 @@
   };
   specialisation = {
     on-the-go.configuration = {
-      system.nixos.tags = ["on-the-go"];
+      system.nixos.tags = ["remember-no-nvidia"];
       boot.extraModprobeConfig = ''
         blacklist nouveau
         options nouveau modeset=0
