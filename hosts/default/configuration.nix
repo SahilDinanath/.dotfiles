@@ -157,7 +157,6 @@
       #apps
       discord
       alacritty
-      kitty
       spotify
       vlc
       deja-dup
