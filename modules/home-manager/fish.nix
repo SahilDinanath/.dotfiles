@@ -17,6 +17,6 @@
       '';
     };
 
-    interactiveShellInit = "zoxide init fish | source";
+    shellInitLast = "zoxide init fish | source";
   };
 }
