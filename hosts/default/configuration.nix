@@ -141,13 +141,6 @@
       heroic
       lutris
       neofetch
-      #tools
-      neovim
-      git
-      lazygit
-      #neovim dependencies
-      cargo
-      ripgrep
 
       #packages
       lshw
@@ -158,6 +151,15 @@
       eza
       zoxide
       fzf
+      bat
+      tldr
+      #tools
+      neovim
+      git
+      lazygit
+      #neovim dependencies
+      cargo
+      ripgrep
 
       #dev-packages
       gcc
