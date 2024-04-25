@@ -166,7 +166,7 @@
 
       #gnome
       gnomeExtensions.forge
-      gnome-extension-manager
+      gnomeExtensions.blur-my-shell
 
       #packages
       lshw
