@@ -166,6 +166,7 @@
 
       #gnome
       gnomeExtensions.forge
+      gnome-extension-manager
 
       #packages
       lshw
