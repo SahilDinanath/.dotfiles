@@ -164,6 +164,9 @@
       lutris
       neofetch
 
+      #gnome
+      gnomeExtensions.forge
+
       #packages
       lshw
 
