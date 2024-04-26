@@ -21,7 +21,8 @@ font pango:monospace 8
 
 #set keyboard
 exec --no-startup-id setxkmap -layout us
-
+#set mouse
+exec --no-startup-id xinput set-prop 9 "libinput Accel Profile Enabled" 0, 1
 #wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/stacy_crockett_crane.png
 
