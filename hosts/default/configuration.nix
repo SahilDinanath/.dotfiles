@@ -164,10 +164,6 @@
       lutris
       neofetch
 
-      #gnome
-      gnomeExtensions.forge
-      gnomeExtensions.blur-my-shell
-
       #packages
       lshw
 
