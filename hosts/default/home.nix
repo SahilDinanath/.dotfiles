@@ -75,6 +75,7 @@
     ../../modules/home-manager/bash.nix
     ../../modules/home-manager/fish.nix
     ../../modules/home-manager/nvim.nix
+    ../../modules/home-manager/i3.nix
   ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
