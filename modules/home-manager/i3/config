@@ -209,9 +209,9 @@ bindsym $mod+r mode "resize"
 gaps inner 5px
 
 #Hide window title bar
-default_border pixel 1
-default_floating_border pixel 1
-for_window [class="^.*"] border pixel 1
+default_border pixel 2
+default_floating_border pixel 2
+for_window [class="^.*"] border pixel 2
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
