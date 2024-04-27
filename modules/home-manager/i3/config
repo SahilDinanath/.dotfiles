@@ -19,6 +19,10 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+#starts gnome keyring daemon for gnome apps (file explorer)
+#https://askubuntu.com/questions/1287123/i3-gnome-keyring-issue
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+
 #set keyboard
 exec --no-startup-id setxkmap -layout us
 #set mouse
@@ -60,9 +64,12 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+## applications ###########
 # start a terminal
 bindsym $mod+Return exec alacritty
-
+# start a terminal
+bindsym $mod+b exec firefox
+##########################
 # kill focused window
 bindsym $mod+q kill
 
@@ -199,6 +206,8 @@ bindsym $mod+r mode "resize"
 # set gaps
 gaps inner 5px
 
+#removes borders
+default_border pixel 0
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
