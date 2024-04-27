@@ -22,13 +22,14 @@ font pango:monospace 8
 #set keyboard
 exec --no-startup-id setxkmap -layout us
 #set mouse
+#https://askubuntu.com/questions/913040/how-to-permanently-disable-mouse-accelleration-in-17-04
 exec --no-startup-id xinput set-prop 9 "libinput Accel Profile Enabled" 0, 1
 #wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/stacy_crockett_crane.png
 
 # Dual monitor setup with laptop
-exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 240 
 exec --no-startup-id xrandr --output eDP-1-1 --auto --left-of HDMI-0 
+exec --no-startup-id xrandr --output HDMI-0 --auto
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -63,7 +64,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
