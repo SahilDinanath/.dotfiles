@@ -163,7 +163,7 @@
       heroic
       lutris
       neofetch
-
+      vscode
       #packages
       lshw
 
