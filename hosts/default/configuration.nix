@@ -183,6 +183,11 @@
       cargo
       ripgrep
 
+      #machine learning
+      python3
+      python311Packages.seaborn
+      python311Packages.numpy
+
       #dev-packages
       gcc
     ];
