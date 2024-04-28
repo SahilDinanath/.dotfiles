@@ -9,7 +9,6 @@
     baseIndex = 1;
     escapeTime = 0;
     keyMode = "vi";
-    customPaneNavigationAndResize = true;
     mouse = true;
     prefix = "C-Space";
     # makes tmux not mess up colours
@@ -30,30 +29,39 @@
       }
     ];
     extraConfig = ''
-      #add whatever this does
-      set-option -g focus-events on
+            #add whatever this does
+            set-option -g focus-events on
 
-      #set clipboard
-      set -s set-clipboard external
+            #set clipboard
+            set -s set-clipboard external
 
-      # Keymaps
-      # alt+H/L to move between windows
-      bind -n M-h previous-window
-      bind -n M-l next-window
+            # Keymaps
+            # alt+H/L to move between windows
+            bind -n M-h previous-window
+            bind -n M-l next-window
 
-      #changes copying in tmux buffers
-      bind-key -T copy-mode-vi v send-keys -X begin-selection
-      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+            #changes copying in tmux buffers
+            bind-key -T copy-mode-vi v send-keys -X begin-selection
+            bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+            bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
-      #open panes in current directory
-      bind '"' split-window -v -c "#{pane_current_path}"
-      bind % split-window -h -c "#{pane_current_path}"
-      bind c new-window -c "#{pane_current_path}"
+            #open panes in current directory
+            bind '"' split-window -v -c "#{pane_current_path}"
+            bind % split-window -h -c "#{pane_current_path}"
+            bind c new-window -c "#{pane_current_path}"
 
-      #fullscreen pane to be the same as window manager
-      bind -r m resize-pane -Z
+            #fullscreen pane to be the same as window manager
+            bind -r m resize-pane -Z
 
+      #resize panes using vim keybinds
+      bind -r -N "Resize the pane left by 5" \
+        H resize-pane -L 5
+      bind -r -N "Resize the pane down by 5" \
+        J resize-pane -D 5
+      bind -r -N "Resize the pane up by 5" \
+        K resize-pane -U 5
+      bind -r -N "Resize the pane right by 5" \
+        L resize-pane -R 5
 
     '';
   };
