@@ -9,6 +9,7 @@
     baseIndex = 1;
     escapeTime = 0;
     keyMode = "vi";
+    customPaneNavigationAndResize = true;
     mouse = true;
     prefix = "C-Space";
     # makes tmux not mess up colours
