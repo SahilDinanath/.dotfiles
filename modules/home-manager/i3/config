@@ -21,7 +21,11 @@ font pango:monospace 8
 
 #starts gnome keyring daemon for gnome apps (file explorer)
 #https://askubuntu.com/questions/1287123/i3-gnome-keyring-issue
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+
+#start screenshot tool
+exec_always --no-startup-id flameshot
+bindsym $mod+Print exec flameshot gui --clipboard
 
 #set keyboard
 exec --no-startup-id setxkmap -layout us
@@ -48,14 +52,18 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec_always --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -109,7 +117,7 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 #bindsym $mod+% split h
-
+bindsym $mod+semicolon split h
 # split in vertical orientation
 bindsym $mod+v split v
 
@@ -208,10 +216,10 @@ bindsym $mod+r mode "resize"
 # set gaps
 gaps inner 5px
 
-#Hide window title bar
-default_border pixel 2
-default_floating_border pixel 2
-for_window [class="^.*"] border pixel 2
+# Hide window title bar
+# default_border pixel 2
+# default_floating_border pixel 2
+# for_window [class="^.*"] border pixel 2
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
