@@ -27,8 +27,6 @@ font pango:monospace 8
 exec_always --no-startup-id flameshot
 bindsym $mod+Print exec flameshot gui --clipboard
 
-#start panel
-exec --no-startup-id xfce4-panel
 #set keyboard
 #exec_always --no-startup-id setxkmap -layout us
 #set mouse
