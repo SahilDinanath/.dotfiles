@@ -242,9 +242,6 @@
         pulseaudio
         brightnessctl
         networkmanagerapplet
-
-        #xfce
-        xfce.xfce4-panel
       ];
     };
   };
