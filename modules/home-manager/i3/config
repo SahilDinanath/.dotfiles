@@ -21,23 +21,23 @@ font pango:monospace 8
 
 #starts gnome keyring daemon for gnome apps (file explorer)
 #https://askubuntu.com/questions/1287123/i3-gnome-keyring-issue
-exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+#exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 
 #start screenshot tool
 exec_always --no-startup-id flameshot
 bindsym $mod+Print exec flameshot gui --clipboard
 
 #set keyboard
-exec_always --no-startup-id setxkmap -layout us
+#exec_always --no-startup-id setxkmap -layout us
 #set mouse
 #https://askubuntu.com/questions/913040/how-to-permanently-disable-mouse-accelleration-in-17-04
-exec --no-startup-id xinput set-prop 9 "libinput Accel Profile Enabled" 0, 1
+#exec --no-startup-id xinput set-prop 9 "libinput Accel Profile Enabled" 0, 1
 #wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/stacy_crockett_crane.png
 
 # Dual monitor setup with laptop
-exec_always --no-startup-id xrandr --output eDP-1-1 --auto & 
-exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 240 --right-of eDP-1-1 &
+#exec_always --no-startup-id xrandr --output eDP-1-1 --auto & 
+#exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 240 --right-of eDP-1-1 &
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -78,7 +78,7 @@ bindsym $mod+Return exec alacritty
 # start a terminal
 bindsym $mod+b exec firefox
 # start file explorer
-bindsym $mod+f exec nautilus
+bindsym $mod+f exec thunar
 ##########################
 # kill focused window
 bindsym $mod+q kill
@@ -223,6 +223,6 @@ gaps inner 5px
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#         status_command i3status
-# }
+bar {
+        status_command i3status
+}
