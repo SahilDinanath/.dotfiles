@@ -23,6 +23,8 @@ font pango:monospace 8
 #https://askubuntu.com/questions/1287123/i3-gnome-keyring-issue
 #exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 
+#start polybar
+exec --no-startup-id polybar -c ~/.config/polybar/main.ini
 #start screenshot tool
 exec_always --no-startup-id flameshot
 bindsym $mod+Print exec flameshot gui --clipboard
