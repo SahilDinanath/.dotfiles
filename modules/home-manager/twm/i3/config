@@ -146,6 +146,21 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
+
+set $left_screen eDP-1-1
+set $right_screen HDMI-0
+
+workspace 1 output $left_screen
+workspace 2 output $left_screen
+workspace 3 output $left_screen
+workspace 4 output $left_screen
+workspace 5 output $left_screen
+workspace 6 output $right_screen
+workspace 7 output $right_screen
+workspace 8 output $right_screen
+workspace 9 output $right_screen
+workspace 10 output $right_screen
+
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
