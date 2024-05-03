@@ -243,7 +243,7 @@
         brightnessctl
         networkmanagerapplet
         #bar
-        eww
+        polybar
       ];
     };
   };

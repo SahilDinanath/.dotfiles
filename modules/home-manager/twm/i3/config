@@ -36,7 +36,7 @@ bindsym $mod+Print exec flameshot gui --clipboard
 #https://askubuntu.com/questions/913040/how-to-permanently-disable-mouse-accelleration-in-17-04
 #exec --no-startup-id xinput set-prop 9 "libinput Accel Profile Enabled" 0, 1
 #wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/stacy_crockett_crane.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/bunny.png
 
 # Dual monitor setup with laptop
 #exec_always --no-startup-id xrandr --output eDP-1-1 --auto & 

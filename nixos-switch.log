@@ -1,27 +1,25 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
 building the system configuration...
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-these 9 derivations will be built:
-  /nix/store/y55zj55c2axjr3qp3xbnw5a268jjgxn7-home-manager-files.drv
-  /nix/store/ymvz048y97bywya610i7x3hn16ryi5sf-home-manager-generation.drv
-  /nix/store/zj47hkgx3vkw91kac49sld8lhwbvpjq1-unit-home-manager-sahil.service.drv
-  /nix/store/skvib95bkm61jq7x4va9y481jrwbc026-system-units.drv
-  /nix/store/rh27119zvg802kmgc0lny938s5a1f8a7-etc.drv
-  /nix/store/0z24mshx390n1v23r0m423wg5wpv60gv-nixos-system-nixos-remember-no-nvidia-24.05.20240421.6143fc5.drv
-  /nix/store/ka4fbpqm4hirj6lj836ysv0yzryr3n36-system-units.drv
-  /nix/store/jkr6mbmwbmw25h7n16hhc1pc58y37xj5-etc.drv
-  /nix/store/sz23p5lq43jc2ypsc9qf8cp7wk45r0jc-nixos-system-nixos-24.05.20240421.6143fc5.drv
-building '/nix/store/y55zj55c2axjr3qp3xbnw5a268jjgxn7-home-manager-files.drv'...
-building '/nix/store/ymvz048y97bywya610i7x3hn16ryi5sf-home-manager-generation.drv'...
-building '/nix/store/zj47hkgx3vkw91kac49sld8lhwbvpjq1-unit-home-manager-sahil.service.drv'...
-building '/nix/store/ka4fbpqm4hirj6lj836ysv0yzryr3n36-system-units.drv'...
-building '/nix/store/skvib95bkm61jq7x4va9y481jrwbc026-system-units.drv'...
-building '/nix/store/jkr6mbmwbmw25h7n16hhc1pc58y37xj5-etc.drv'...
-building '/nix/store/rh27119zvg802kmgc0lny938s5a1f8a7-etc.drv'...
-building '/nix/store/0z24mshx390n1v23r0m423wg5wpv60gv-nixos-system-nixos-remember-no-nvidia-24.05.20240421.6143fc5.drv'...
-building '/nix/store/sz23p5lq43jc2ypsc9qf8cp7wk45r0jc-nixos-system-nixos-24.05.20240421.6143fc5.drv'...
-activating the configuration...
-setting up /etc...
-reloading user units for sahil...
-restarting sysinit-reactivation.target
-restarting the following units: home-manager-sahil.service
+error:
+       … while calling the 'head' builtin
+
+         at /nix/store/cc0ribc27c349w1v2anrby7z8kigy5pq-source/lib/attrsets.nix:1575:11:
+
+         1574|         || pred here (elemAt values 1) (head values) then
+         1575|           head values
+             |           ^
+         1576|         else
+
+       … while evaluating the attribute 'value'
+
+         at /nix/store/cc0ribc27c349w1v2anrby7z8kigy5pq-source/lib/modules.nix:809:9:
+
+          808|     in warnDeprecation opt //
+          809|       { value = builtins.addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |         ^
+          810|         inherit (res.defsFinal') highestPrio;
+
+       (stack trace truncated; use '--show-trace' to show the full trace)
+
+       error: getting status of '/nix/store/psqpz54yvyyfpi5kkf1h5k6vdi8gv4v1-source/modules/home-manager/twm/eww': No such file or directory
