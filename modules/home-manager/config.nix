@@ -10,8 +10,8 @@
     '';
   };
 
-  home.file.".config/eww" = {
-    source = ./twm/eww;
-    recursive = true;
-  };
+  # home.file.".config/eww" = {
+  #   source = ./twm/eww;
+  #   recursive = true;
+  # };
 }
