@@ -71,7 +71,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["nvidia" "amdgpu"];
 
   hardware.nvidia = {
     # Modesetting is required.
@@ -112,8 +112,8 @@
     nvidiaBusId = "PCI:1:0:0";
   };
   specialisation = {
-    on-the-go.configuration = {
-      system.nixos.tags = ["remember-no-nvidia"];
+    no-nvidia.configuration = {
+      system.nixos.tags = ["no-nvidia"];
       boot.extraModprobeConfig = ''
         blacklist nouveau
         options nouveau modeset=0
@@ -157,6 +157,8 @@
       lutris
       neofetch
       vscode
+      qbittorrent
+      bottles
 
       #packages
       lshw
@@ -187,7 +189,10 @@
     ];
   };
 
+  #gaming settings
   programs.steam.enable = true;
+  programs.gamemode.enable = true;
+  programs.gamescope.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
