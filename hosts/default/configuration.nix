@@ -159,6 +159,7 @@
       vscode
       qbittorrent
       bottles
+      vesktop
 
       #packages
       lshw
@@ -178,7 +179,7 @@
       #neovim dependencies
       cargo
       ripgrep
-
+      nodejs_22
       #machine learning
       python3
       python311Packages.seaborn
