@@ -1,32 +1,70 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
 building the system configuration...
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-error:
-       … while calling the 'head' builtin
-
-         at /nix/store/3pif36ks3f56py4wb1dkq6sh0nkf3ygj-source/lib/attrsets.nix:1575:11:
-
-         1574|         || pred here (elemAt values 1) (head values) then
-         1575|           head values
-             |           ^
-         1576|         else
-
-       … while evaluating the attribute 'value'
-
-         at /nix/store/3pif36ks3f56py4wb1dkq6sh0nkf3ygj-source/lib/modules.nix:809:9:
-
-          808|     in warnDeprecation opt //
-          809|       { value = builtins.addErrorContext "while evaluating the option `${showOption loc}':" value;
-             |         ^
-          810|         inherit (res.defsFinal') highestPrio;
-
-       (stack trace truncated; use '--show-trace' to show the full trace)
-
-       error: undefined variable 'nodejs_21'
-
-       at /nix/store/l3vswka37wbgxrszy64mcsldgrirw07i-source/hosts/default/configuration.nix:182:7:
-
-          181|       ripgrep
-          182|       nodejs_21
-             |       ^
-          183|
+these 32 derivations will be built:
+  /nix/store/lrgsm17fk54yddb94ib3619ayx8b86bg-system-path.drv
+  /nix/store/0q0vxjp8652yd95ah8bk080apidaydpv-X-Restart-Triggers-polkit.drv
+  /nix/store/znaaj2wqssw0n7mayfk477zrrnzkmalk-set-environment.drv
+  /nix/store/25367759s6kqincpdih0mvm400qribkk-etc-profile.drv
+  /nix/store/41hwvh9dq1c08jvp63x4ry123238cb0f-dbus-1.drv
+  /nix/store/z1849gxxanybw2q48lay5nl4ny0dydxd-X-Restart-Triggers-dbus.drv
+  /nix/store/m3g3cd2592h72hgi32knb5s29l1b45cm-unit-dbus.service.drv
+  /nix/store/3a2b8ydc6pzyf8iy20528j3g7fyg5sgb-user-units.drv
+  /nix/store/7pvd66xwvsiys07kx457f28i42gdnmhv-system-path.drv
+  /nix/store/4iwj839nm1r4pdak0w6y7n6shcs4l818-unit-accounts-daemon.service.drv
+  /nix/store/4vird50mfy33gns0cj4vf5nk0igcdb2g-X-Restart-Triggers-polkit.drv
+  /nix/store/gp2wgvshk820drb28ablwwvanmx8gicl-dbus-1.drv
+  /nix/store/8raw40k0dspj267q63d3lfk81ag13sxi-X-Restart-Triggers-dbus.drv
+  /nix/store/5qdmlxzclhhbxw9fdjmgzxhhjv4azh6w-unit-dbus.service.drv
+  /nix/store/98pz3dh0amiyriqq15jvqf0fa81jj3a2-system-shutdown.drv
+  /nix/store/pvzj8sl4bqmh8wm70qciqwr53zzpg9g5-unit-dbus.service.drv
+  /nix/store/rq093z62f6z9cmgc2ad63gpn8axzpx45-unit-accounts-daemon.service.drv
+  /nix/store/zhwac7ipxfxcw2zmvagr7hnk1ycwaq5g-unit-polkit.service.drv
+  /nix/store/d16sm3y99pf1g6f3v868h4mr7kxgm041-system-units.drv
+  /nix/store/gwxg1as1231g799azq2wsik80cs07vjr-system-generators.drv
+  /nix/store/z28a75rczcm9aza7zjp8izs777scgv9k-etc-pam-environment.drv
+  /nix/store/7ixicr4hi7vs551gyqxkvvc10xgla9jk-etc.drv
+  /nix/store/f3f98acwxw1jppinzbl3661jdg6r419j-unit-dbus.service.drv
+  /nix/store/875n1nw1b9hshh411g79iz7vkpyryp15-user-units.drv
+  /nix/store/gh8namwwrln01m4kp566dzm2qlfgh4bf-set-environment.drv
+  /nix/store/awlx63spx4qaxxpmciq321nbsavlw99b-etc-profile.drv
+  /nix/store/q4qyvpn5m5nb8whc55ijgypa00vd7065-etc-pam-environment.drv
+  /nix/store/mszmp2pa9840jkv7sc8igfxfbappgy2c-unit-polkit.service.drv
+  /nix/store/vz9dfvrwaww8hr7zsxg5ifqy82f5s7x7-system-units.drv
+  /nix/store/mh3md2x9wlrc7qay1646y525nyrxcmw3-etc.drv
+  /nix/store/sn9jvdm58bxx9li39650xp18jzd921zw-nixos-system-nixos-no-nvidia-24.05.20240505.25865a4.drv
+  /nix/store/pyg5ghams02619vypjabwnz5fb4hw3m7-nixos-system-nixos-24.05.20240505.25865a4.drv
+building '/nix/store/7pvd66xwvsiys07kx457f28i42gdnmhv-system-path.drv'...
+building '/nix/store/lrgsm17fk54yddb94ib3619ayx8b86bg-system-path.drv'...
+building '/nix/store/gwxg1as1231g799azq2wsik80cs07vjr-system-generators.drv'...
+building '/nix/store/98pz3dh0amiyriqq15jvqf0fa81jj3a2-system-shutdown.drv'...
+building '/nix/store/4vird50mfy33gns0cj4vf5nk0igcdb2g-X-Restart-Triggers-polkit.drv'...
+building '/nix/store/gp2wgvshk820drb28ablwwvanmx8gicl-dbus-1.drv'...
+building '/nix/store/q4qyvpn5m5nb8whc55ijgypa00vd7065-etc-pam-environment.drv'...
+building '/nix/store/gh8namwwrln01m4kp566dzm2qlfgh4bf-set-environment.drv'...
+building '/nix/store/4iwj839nm1r4pdak0w6y7n6shcs4l818-unit-accounts-daemon.service.drv'...
+building '/nix/store/8raw40k0dspj267q63d3lfk81ag13sxi-X-Restart-Triggers-dbus.drv'...
+building '/nix/store/awlx63spx4qaxxpmciq321nbsavlw99b-etc-profile.drv'...
+building '/nix/store/mszmp2pa9840jkv7sc8igfxfbappgy2c-unit-polkit.service.drv'...
+building '/nix/store/0q0vxjp8652yd95ah8bk080apidaydpv-X-Restart-Triggers-polkit.drv'...
+building '/nix/store/41hwvh9dq1c08jvp63x4ry123238cb0f-dbus-1.drv'...
+building '/nix/store/z28a75rczcm9aza7zjp8izs777scgv9k-etc-pam-environment.drv'...
+building '/nix/store/znaaj2wqssw0n7mayfk477zrrnzkmalk-set-environment.drv'...
+building '/nix/store/rq093z62f6z9cmgc2ad63gpn8axzpx45-unit-accounts-daemon.service.drv'...
+building '/nix/store/5qdmlxzclhhbxw9fdjmgzxhhjv4azh6w-unit-dbus.service.drv'...
+building '/nix/store/f3f98acwxw1jppinzbl3661jdg6r419j-unit-dbus.service.drv'...
+building '/nix/store/z1849gxxanybw2q48lay5nl4ny0dydxd-X-Restart-Triggers-dbus.drv'...
+building '/nix/store/25367759s6kqincpdih0mvm400qribkk-etc-profile.drv'...
+building '/nix/store/vz9dfvrwaww8hr7zsxg5ifqy82f5s7x7-system-units.drv'...
+building '/nix/store/zhwac7ipxfxcw2zmvagr7hnk1ycwaq5g-unit-polkit.service.drv'...
+building '/nix/store/m3g3cd2592h72hgi32knb5s29l1b45cm-unit-dbus.service.drv'...
+building '/nix/store/pvzj8sl4bqmh8wm70qciqwr53zzpg9g5-unit-dbus.service.drv'...
+building '/nix/store/875n1nw1b9hshh411g79iz7vkpyryp15-user-units.drv'...
+building '/nix/store/d16sm3y99pf1g6f3v868h4mr7kxgm041-system-units.drv'...
+building '/nix/store/3a2b8ydc6pzyf8iy20528j3g7fyg5sgb-user-units.drv'...
+error: builder for '/nix/store/875n1nw1b9hshh411g79iz7vkpyryp15-user-units.drv' failed with exit code 1;
+       last 1 log lines:
+       > ln: failed to create symbolic link '/nix/store/jikmsa1cnxp2wnvv3jy2fjxg6jkqv3nr-user-units/xdg-desktop-portal-gtk.service': File exists
+       For full logs, run 'nix log /nix/store/875n1nw1b9hshh411g79iz7vkpyryp15-user-units.drv'.
+error: 1 dependencies of derivation '/nix/store/mh3md2x9wlrc7qay1646y525nyrxcmw3-etc.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/pyg5ghams02619vypjabwnz5fb4hw3m7-nixos-system-nixos-24.05.20240505.25865a4.drv' failed to build

@@ -13,6 +13,9 @@
     inputs.home-manager.nixosModules.default
   ];
 
+  # Kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -138,6 +141,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  # Enables Cuda Support
+  nixpkgs.config.cudaSupport = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sahil = {
     isNormalUser = true;
@@ -150,6 +155,7 @@
       #apps
       discord
       alacritty
+      kitty
       spotify
       vlc
       deja-dup
@@ -187,6 +193,17 @@
 
       #dev-packages
       gcc
+
+      #hypr
+      wofi
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+      xwayland
+      meson
+      wayland-protocols
+      wayland-utils
+      wl-clipboard
+      wlroots
     ];
   };
 
@@ -195,6 +212,15 @@
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
 
+  ##################
+  #twm
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  xdg.portal.enable = true;
+  #xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  ###################
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
