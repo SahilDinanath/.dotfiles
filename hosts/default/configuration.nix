@@ -148,6 +148,7 @@
     isNormalUser = true;
     description = "Sahil Dinanath";
     extraGroups = ["networkmanager" "wheel"];
+    #software
     packages = with pkgs; [
       firefox
       steam
@@ -166,7 +167,7 @@
       qbittorrent
       bottles
       vesktop
-
+      libreoffice
       #packages
       lshw
 
@@ -178,10 +179,12 @@
       fzf
       bat
       tldr
+      btop
       #tools
       neovim
       git
       lazygit
+      direnv
       #neovim dependencies
       cargo
       ripgrep
