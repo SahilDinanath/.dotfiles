@@ -6,8 +6,9 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      est = "eza --tree --color=auto --group-directories-first";
-      es = "eza --color=auto --group-directories-first";
+      cd = "z";
+      lst = "eza --tree --color=auto --group-directories-first";
+      ls = "eza --color=auto --group-directories-first";
     };
     functions = {
       cde = ''
@@ -17,6 +18,10 @@
       '';
     };
 
-    shellInitLast = "zoxide init fish | source";
+    shellInitLast = ''
+      fzf --fish | source
+      zoxide init fish | source
+      direnv hook fish | source
+    '';
   };
 }

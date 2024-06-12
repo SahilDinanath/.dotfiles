@@ -64,6 +64,9 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  #CPU
+  #A common tool used to save power on laptops, which has sensible defaults for most laptops.
+  services.auto-cpufreq.enable = true;
 
   #Nvidia GPU support
   # Enable OpenGL
@@ -74,7 +77,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia" "amdgpu"];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     # Modesetting is required.
@@ -189,14 +192,15 @@
       cargo
       ripgrep
       nodejs_22
-      #machine learning
-      python3
-      python311Packages.seaborn
-      python311Packages.numpy
+      nerdfonts
 
       #dev-packages
       gcc
+      python3
 
+      #gnome
+      gnomeExtensions.blur-my-shell
+      gnomeExtensions.forge
       #hypr
       wofi
       xdg-desktop-portal-gtk
@@ -210,11 +214,17 @@
     ];
   };
 
+  fonts.packages = with pkgs; [
+    nerdfonts
+  ];
+
   #gaming settings
   programs.steam.enable = true;
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
 
+  #developer settings
+  programs.direnv.enable = true;
   ##################
   #twm
   programs.hyprland = {
@@ -224,6 +234,7 @@
   xdg.portal.enable = true;
   #xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
   ###################
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -283,6 +294,27 @@
     };
   };
 
+  #########################################################################
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L"
+    ];
+    dates = "07:00";
+    randomizedDelaySec = "45min";
+  };
+  ######################################################################
+  #automaticallly delete older generations
+  #https://nixos.wiki/wiki/Storage_optimization
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
   ######################################################################
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
