@@ -27,7 +27,7 @@ vim.opt.hlsearch = true
 -- keymaps
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set('n', '<leader>e', '<cmd>Lex<CR>')
+vim.keymap.set('n', '<leader>e', '<cmd>Lex<CR>', {desc = "File Explorer"})
 
 -- autocommands
 
