@@ -9,31 +9,21 @@
     vimAlias = false;
     vimdiffAlias = true;
     defaultEditor = true;
-    #
-    #    plugins = with pkgs.vimPlugins; [
-    #       vim-tmux-navigator
-    #        lazygit-nvim
-    # vim-sleuth
-    #
-    # telescope-nvim
-    # telescope-fzf-native-nvim
-    #
-    # nvim-cmp
-    # nvim-lspconfig
-    #
-    # neodev-nvim
-    #
-    #
-    #
-    #
-    #
-    #
-    #    ];
-    #
+
     extraPackages = with pkgs; [
       wl-clipboard
       xclip
       lazygit
     ];
   };
+
+  home.file.".config/nvim" = {
+    source = ./nvim;
+    recursive = true;
+  };
+
+  # home.file.".config/eww" = {
+  #   source = ./twm/eww;
+  #   recursive = true;
+  # };
 }

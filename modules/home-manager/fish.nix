@@ -6,7 +6,6 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      cd = "z";
       lst = "eza --tree --color=auto --group-directories-first";
       ls = "eza --color=auto --group-directories-first";
     };

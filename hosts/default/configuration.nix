@@ -197,6 +197,7 @@
       #dev-packages
       gcc
       python3
+      gnumake
 
       #gnome
       gnomeExtensions.blur-my-shell
