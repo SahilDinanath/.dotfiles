@@ -189,11 +189,11 @@ return { -- LSP Configuration & Plugins
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
-            local server = servers['lua_ls'] or {}
+            -- local server = servers['lua_ls'] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for tsserver)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')lua_ls.setup(server)
+            -- server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            require('lspconfig').lua_ls.setup({})
     end
 }
