@@ -188,12 +188,17 @@
       git
       lazygit
       direnv
-      #neovim dependencies
+
+      ########
+      #neovim#
+      ########
+      #dependencies
       cargo
       ripgrep
       nodejs_22
       nerdfonts
-
+      #LSPs
+      lua-language-server
       #dev-packages
       gcc
       python3
