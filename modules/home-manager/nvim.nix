@@ -10,11 +10,6 @@
     vimdiffAlias = true;
     defaultEditor = true;
 
-    extraPackages = with pkgs; [
-      wl-clipboard
-      xclip
-      lazygit
-    ];
   };
 
   home.file.".config/nvim" = {

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -e
 pushd ~/.dotfiles/
-alejandra . &>/dev/null
 git add *
 git diff -U0 *.nix
 echo "NixOS Rebuilding..."

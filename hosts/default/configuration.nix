@@ -171,54 +171,44 @@
       bottles
       vesktop
       libreoffice
-      #packages
-      lshw
-
+      
       #terminal
       tmux
-      alejandra
       eza
       zoxide
       fzf
       bat
-      tldr
       btop
-      #tools
-      neovim
-      git
-      lazygit
-      direnv
-
+      
       ########
       #neovim#
       ########
+      neovim
+      #lsps
+      lua-language-server
+      nil
+      #formatters
+      nixfmt-rfc-style
+      stylua
+      #dev-packages
+      gcc
+      python3
+      gnumake
+      #tools
+      git
+      lazygit
+      direnv
       #dependencies
       cargo
       ripgrep
       nodejs_22
       nerdfonts
-      #LSPs
-      lua-language-server
-      nil
-      #dev-packages
-      gcc
-      python3
-      gnumake
-
-      #gnome
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.forge
-      #hypr
-      wofi
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-      xwayland
-      meson
-      wayland-protocols
-      wayland-utils
       wl-clipboard
-      wlroots
-    ];
+      xclip
+      #miscellaneous
+      lshw
+
+      ];
   };
 
   fonts.packages = with pkgs; [
