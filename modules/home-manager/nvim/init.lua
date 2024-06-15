@@ -1,7 +1,6 @@
 -- options
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.autowrite = true
@@ -23,11 +22,13 @@ vim.opt.cursorline = true
 vim.opt.cursorlineopt = 'number'
 vim.opt.scrolloff = 15
 vim.opt.hlsearch = true
-
+vim.opt.showmode = false
 -- keymaps
 -- general
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })

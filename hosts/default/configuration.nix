@@ -199,6 +199,7 @@
       nerdfonts
       #LSPs
       lua-language-server
+      nil
       #dev-packages
       gcc
       python3

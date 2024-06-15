@@ -163,7 +163,7 @@ return { -- LSP Configuration & Plugins
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-
+        nil_ls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -180,20 +180,13 @@ return { -- LSP Configuration & Plugins
         },
       }
 
-      -- Ensure the servers and tools above are installed
-      --  To check the current status of installed tools and/or manually install
-      --  other tools, you can run
-      --    :Mason
-      --
-      --  You can press `g?` for help in this menu.
-
-      -- You can add other tools here that you want Mason to install
-      -- for you, so that they are available from within Neovim.
-            -- local server = servers['lua_ls'] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
-            -- server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig').lua_ls.setup({})
+      for server_name, _ in pairs(servers) do
+        local server = servers[server_name] or {}
+        -- This handles overriding only values explicitly passed
+        -- by the server configuration above. Useful when disabling
+        -- certain features of an LSP (for example, turning off formatting for tsserver)
+        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+        require('lspconfig')[server_name].setup(server)
+      end
     end
 }
