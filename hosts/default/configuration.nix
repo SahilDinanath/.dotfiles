@@ -6,7 +6,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -77,7 +78,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     # Modesetting is required.
@@ -119,7 +120,7 @@
   };
   specialisation = {
     no-nvidia.configuration = {
-      system.nixos.tags = ["no-nvidia"];
+      system.nixos.tags = [ "no-nvidia" ];
       boot.extraModprobeConfig = ''
         blacklist nouveau
         options nouveau modeset=0
@@ -135,7 +136,12 @@
         # Remove NVIDIA VGA/3D controller devices
         ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
       '';
-      boot.blacklistedKernelModules = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"];
+      boot.blacklistedKernelModules = [
+        "nouveau"
+        "nvidia"
+        "nvidia_drm"
+        "nvidia_modeset"
+      ];
     };
   };
 
@@ -150,7 +156,10 @@
   users.users.sahil = {
     isNormalUser = true;
     description = "Sahil Dinanath";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     #software
     packages = with pkgs; [
       firefox
@@ -171,7 +180,7 @@
       bottles
       vesktop
       libreoffice
-      
+
       #terminal
       tmux
       eza
@@ -179,7 +188,7 @@
       fzf
       bat
       btop
-      
+
       ########
       #neovim#
       ########
@@ -207,13 +216,10 @@
       xclip
       #miscellaneous
       lshw
-
-      ];
+    ];
   };
 
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
+  fonts.packages = with pkgs; [ nerdfonts ];
 
   #gaming settings
   programs.steam.enable = true;
@@ -241,14 +247,16 @@
 
   home-manager = {
     #also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {
+      inherit inputs;
+    };
     users = {
       "sahil" = import ./home.nix;
     };
   };
 
   ###################### i3 ############################################
-  environment.pathsToLink = ["/libexec"];
+  environment.pathsToLink = [ "/libexec" ];
   services.xserver = {
     # displayManager = {
     #     defaultSession = "none+i3";
@@ -275,12 +283,12 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        dmenu #application launcher most people use
+        dmenu # application launcher most people use
         i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
-        i3blocks #if you are planning on using i3blocks over i3status
+        i3lock # default i3 screen locker
+        i3blocks # if you are planning on using i3blocks over i3status
         #utils
-        feh #wallpaper
+        feh # wallpaper
         flameshot
         pulseaudio
         brightnessctl
@@ -340,5 +348,8 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }

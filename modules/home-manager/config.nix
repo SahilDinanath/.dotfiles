@@ -1,8 +1,5 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   home.file.".config/i3" = {
     source = ./twm/i3;
     onChange = ''
