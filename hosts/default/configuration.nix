@@ -215,29 +215,11 @@
       nerdfonts
       wl-clipboard
       xclip
+
       #miscellaneous
       lshw
     ];
   };
-
-  fonts.packages = with pkgs; [ nerdfonts ];
-
-  #gaming settings
-  programs.steam.enable = true;
-  programs.gamemode.enable = true;
-  programs.gamescope.enable = true;
-
-  #developer settings
-  programs.direnv.enable = true;
-  ##################
-  #twm
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  xdg.portal.enable = true;
-  #xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  ###################
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -246,6 +228,10 @@
     #  wget
   ];
 
+  # Add font packages
+  fonts.packages = with pkgs; [ nerdfonts ];
+
+  #configure home manager
   home-manager = {
     #also pass inputs to home-manager modules
     extraSpecialArgs = {
@@ -255,6 +241,27 @@
       "sahil" = import ./home.nix;
     };
   };
+
+  #######################################
+  #gaming settings
+  programs.steam.enable = true;
+  programs.gamemode.enable = true;
+  programs.gamescope.enable = true;
+  #######################################
+
+  #######################################
+  #developer settings
+  programs.direnv.enable = true;
+
+  ##################
+  #twm
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  xdg.portal.enable = true;
+  #xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  ###################
 
   ###################### i3 ############################################
   environment.pathsToLink = [ "/libexec" ];

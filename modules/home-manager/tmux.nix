@@ -11,7 +11,7 @@
     prefix = "C-Space";
     # makes tmux not mess up colours
     terminal = "tmux-256color";
-    #shell = "${pkgs.fish}/bin/fish";
+    # shell = "${pkgs.fish}/bin/fish";
 
     plugins = with pkgs; [
       tmuxPlugins.sensible
