@@ -182,6 +182,7 @@
       libreoffice
 
       #terminal
+      fd
       tmux
       eza
       zoxide

@@ -70,7 +70,7 @@
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/tmux.nix
     ../../modules/home-manager/bash.nix
-    ../../modules/home-manager/fish.nix
+    # ../../modules/home-manager/fish.nix
     ../../modules/home-manager/nvim.nix
     ../../modules/home-manager/config.nix
   ];
