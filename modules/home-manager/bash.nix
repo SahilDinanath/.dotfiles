@@ -11,6 +11,9 @@
       ls = "eza --color=auto --group-directories-first";
     };
     initExtra = ''
+      #add scripts to path
+      export PATH="$PATH:~/.dotfiles/scripts"
+
       #setup fzf keybinds and fuzzy completion
       eval "$(fzf --bash)"
 
