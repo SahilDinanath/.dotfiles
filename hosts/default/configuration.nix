@@ -195,7 +195,7 @@
       neovim
       #lsps
       lua-language-server
-      nil
+      nixd
       #formatters
       nixfmt-rfc-style
       stylua
@@ -217,6 +217,10 @@
 
       #miscellaneous
       lshw
+
+      #Gnome extensions
+      gnomeExtensions.gsconnect
+      gnomeExtensions.forge
     ];
   };
 
@@ -252,16 +256,6 @@
   #developer settings
   programs.direnv.enable = true;
 
-  ##################
-  #twm
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  xdg.portal.enable = true;
-  #xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  ###################
-
   ###################### i3 ############################################
   environment.pathsToLink = [ "/libexec" ];
   services.xserver = {
@@ -275,17 +269,7 @@
     # Enable the GNOME Desktop Environment.
     displayManager.gdm.enable = true;
 
-    desktopManager = {
-      gnome.enable = true;
-
-      xterm.enable = false;
-
-      xfce = {
-        enable = true;
-        noDesktop = true;
-        enableXfwm = false;
-      };
-    };
+    desktopManager.gnome.enable = true;
 
     windowManager.i3 = {
       enable = true;
@@ -300,12 +284,10 @@
         pulseaudio
         brightnessctl
         networkmanagerapplet
-        #bar
-        polybar
       ];
     };
   };
-
+  programs.dconf.enable = true;
   #########################################################################
   system.autoUpgrade = {
     enable = true;
@@ -318,6 +300,7 @@
     dates = "07:00";
     randomizedDelaySec = "45min";
   };
+
   ######################################################################
   #automaticallly delete older generations
   #https://nixos.wiki/wiki/Storage_optimization
@@ -327,6 +310,7 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+
   ######################################################################
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

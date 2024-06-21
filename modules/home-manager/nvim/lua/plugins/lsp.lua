@@ -162,7 +162,7 @@ return { -- LSP Configuration & Plugins
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
 			--
-			nil_ls = {},
+			nixd = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
