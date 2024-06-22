@@ -34,13 +34,13 @@ bindsym $mod+Print exec flameshot gui --clipboard
 #exec_always --no-startup-id setxkmap -layout us
 #set mouse
 #https://askubuntu.com/questions/913040/how-to-permanently-disable-mouse-accelleration-in-17-04
-#exec --no-startup-id xinput set-prop 9 "libinput Accel Profile Enabled" 0, 1
+exec --no-startup-id xinput set-prop 9 "libinput Accel Profile Enabled" 0, 1
 #wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/bunny.png
 
 # Dual monitor setup with laptop
-#exec_always --no-startup-id xrandr --output eDP-1-1 --auto & 
-#exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 240 --right-of eDP-1-1 &
+exec_always --no-startup-id xrandr --output eDP-1-1 --auto & 
+exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 240 --right-of eDP-1-1 &
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
