@@ -21,7 +21,7 @@ font pango:monospace 8
 
 #starts gnome keyring daemon for gnome apps (file explorer)
 #https://askubuntu.com/questions/1287123/i3-gnome-keyring-issue
-#exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 
 #start polybar
 #exec --no-startup-id polybar -c ~/.config/polybar/main.ini
@@ -35,8 +35,9 @@ bindsym $mod+Print exec flameshot gui --clipboard
 #set mouse
 #https://askubuntu.com/questions/913040/how-to-permanently-disable-mouse-accelleration-in-17-04
 exec --no-startup-id xinput set-prop 9 "libinput Accel Profile Enabled" 0, 1
+
 #wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/bunny.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/stairs_manga.jpg
 
 # Dual monitor setup with laptop
 exec_always --no-startup-id xrandr --output eDP-1-1 --auto & 
@@ -57,6 +58,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec_always --no-startup-id nm-applet
 
+######################VOLUME##################################
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
@@ -64,9 +66,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+#####################BRIGHTNESS################################
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -75,13 +77,13 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
-## applications ###########
+###################### applications ###########
 # start a terminal
 bindsym $mod+Return exec alacritty
 # start a terminal
 bindsym $mod+b exec firefox
 # start file explorer
-bindsym $mod+f exec thunar
+bindsym $mod+f exec dolphin
 ##########################
 # kill focused window
 bindsym $mod+q kill
@@ -120,17 +122,17 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 #bindsym $mod+% split h
-bindsym $mod+semicolon split h
+bindsym $mod+s split v
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+m fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+w layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -201,7 +203,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

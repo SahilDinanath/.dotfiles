@@ -145,13 +145,14 @@
     };
   };
 
+  # Enables Cuda Support
+  nixpkgs.config.cudaSupport = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  # Enables Cuda Support
-  nixpkgs.config.cudaSupport = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sahil = {
     isNormalUser = true;
@@ -257,18 +258,19 @@
   programs.direnv.enable = true;
 
   ###################### i3 ############################################
+  #https://nixos.wiki/wiki/I3
+  # links /libexec from derivations to /run/current-system/sw 
   environment.pathsToLink = [ "/libexec" ];
   services.xserver = {
-    # displayManager = {
-    #     defaultSession = "none+i3";
-    # };
 
     # Enable the X11 windowing system.
     enable = true;
 
     # Enable the GNOME Desktop Environment.
     displayManager.gdm.enable = true;
-
+    # displayManager = {
+    #     defaultSession = "none+i3";
+    # };
     desktopManager.gnome.enable = true;
 
     windowManager.i3 = {
@@ -278,15 +280,21 @@
         i3status # gives you the default i3 status bar
         i3lock # default i3 screen locker
         i3blocks # if you are planning on using i3blocks over i3status
+
         #utils
-        feh # wallpaper
+        #wallpaper
+        feh
         flameshot
+        #audio controls
         pulseaudio
+        #laptop brightness control
         brightnessctl
+        #wifi
         networkmanagerapplet
       ];
     };
   };
+
   programs.dconf.enable = true;
   #########################################################################
   system.autoUpgrade = {
