@@ -30,9 +30,6 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- navigate wrapped lines like normal lines
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
--- add empty lines
-vim.keymap.set("n", "<Enter>", "o<Esc>")
-vim.keymap.set("n", "<S-Enter>", "O<Esc>")
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
