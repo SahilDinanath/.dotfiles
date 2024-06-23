@@ -31,6 +31,9 @@
       set-option -a terminal-features 'alacritty:RGB'
       set-option -g focus-events on
 
+      #options
+      set -g renumber-windows on
+
       #set clipboard
       set -s set-clipboard external
 

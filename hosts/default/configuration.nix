@@ -67,13 +67,12 @@
   };
   #CPU
   #A common tool used to save power on laptops, which has sensible defaults for most laptops.
-  services.auto-cpufreq.enable = true;
+  #services.auto-cpufreq.enable = true;
 
   #Nvidia GPU support
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
-    driSupport = true;
     driSupport32Bit = true;
   };
 
