@@ -71,11 +71,7 @@
 
   #Nvidia GPU support
   # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-  };
-
+  hardware.graphics.enable = true;
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -194,6 +190,7 @@
       ########
       neovim
       #lsps
+      clang-tools
       lua-language-server
       nixd
       #formatters
