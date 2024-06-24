@@ -191,7 +191,7 @@
       ########
       neovim
       #lsps
-      go
+      gopls
       clang-tools
       lua-language-server
       nixd
@@ -199,6 +199,7 @@
       nixfmt-rfc-style
       stylua
       #dev-packages
+      go
       gcc
       python3
       gnumake
