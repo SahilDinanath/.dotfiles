@@ -191,6 +191,7 @@
       ########
       neovim
       #lsps
+      go
       clang-tools
       lua-language-server
       nixd

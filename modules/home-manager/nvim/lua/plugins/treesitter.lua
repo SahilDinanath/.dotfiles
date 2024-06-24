@@ -6,6 +6,7 @@ return {
 
 		configs.setup({
 			ensure_installed = {
+				"go",
 				"c",
 				"lua",
 				"vim",
