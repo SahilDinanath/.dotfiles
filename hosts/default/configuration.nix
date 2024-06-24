@@ -159,6 +159,7 @@
     #software
     packages = with pkgs; [
       firefox
+      qutebrowser
       steam
       #  thunderbird
       #apps
