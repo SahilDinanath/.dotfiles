@@ -1,8 +1,12 @@
 return {
-	"rebelot/kanagawa.nvim",
+	"ellisonleao/gruvbox.nvim",
 	priority = 1000,
 	config = function()
-		require("kanagawa").setup({})
-		vim.cmd("colorscheme kanagawa-dragon")
+		require("gruvbox").setup({
+			overrides = {
+				SignColumn = { bg = "#ff9900" },
+			},
+		})
+		vim.cmd("colorscheme gruvbox")
 	end,
 }
