@@ -3,9 +3,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("gruvbox").setup({
-			overrides = {
-				SignColumn = { bg = "#ff9900" },
-			},
+			contrast = "hard",
 		})
 		vim.cmd("colorscheme gruvbox")
 	end,
