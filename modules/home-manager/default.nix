@@ -10,7 +10,7 @@
     ./bash.nix
     ./nvim.nix
     ./tmux.nix
-    ./config.nix
-    ./fish.nix
+    ./twm.nix
+    #./fish.nix
   ];
 }

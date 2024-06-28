@@ -8,13 +8,8 @@
     defaultEditor = true;
   };
 
-  home.file.".config/nvim" = {
+  xdg.configFile."nvim" = {
     source = ./nvim;
     recursive = true;
   };
-
-  # home.file.".config/eww" = {
-  #   source = ./twm/eww;
-  #   recursive = true;
-  # };
 }
