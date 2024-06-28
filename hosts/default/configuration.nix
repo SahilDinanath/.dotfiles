@@ -70,7 +70,7 @@
   };
 
   #add Nvidia support if not in specialisation aka no-nvidia
-  config = lib.mkIf (config.specialisation == { }) {
+  lib.optionalAttrs (config.specialisation == { }) {
     #Nvidia GPU support
     # Enable OpenGL
     hardware.graphics.enable = true;
