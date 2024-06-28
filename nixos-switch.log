@@ -20,4 +20,11 @@ error:
 
        (stack trace truncated; use '--show-trace' to show the full trace)
 
-       error: Module `/nix/store/y5rlgqvkdjl272547lskdbllqfvmyr3p-source/hosts/default/configuration.nix' has an unsupported attribute `boot'. This is caused by introducing a top-level `config' or `options' attribute. Add configuration attributes immediately on the top level instead, or move all of them (namely: boot environment fonts hardware home-manager i18n networking nix nixpkgs programs security services sound specialisation system time users) into the explicit `config' attribute.
+       error: syntax error, unexpected '(', expecting '.' or '='
+
+       at /nix/store/k4r689jgnrbq0a7wmhzs78sr2pny7w11-source/hosts/default/configuration.nix:73:21:
+
+           72|   #add Nvidia support if not in specialisation aka no-nvidia
+           73|   lib.optionalAttrs (config.specialisation == { }) {
+             |                     ^
+           74|     #Nvidia GPU support
