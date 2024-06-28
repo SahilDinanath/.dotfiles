@@ -1,31 +1,24 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-error:
-       … while calling the 'seq' builtin
-
-         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:322:18:
-
-          321|         options = checked options;
-          322|         config = checked (removeAttrs config [ "_module" ]);
-             |                  ^
-          323|         _module = checked (config._module);
-
-       … while evaluating a branch condition
-
-         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:261:9:
-
-          260|       checkUnmatched =
-          261|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [] then
-             |         ^
-          262|           let
-
-       (stack trace truncated; use '--show-trace' to show the full trace)
-
-       error: attribute 'mkif' missing
-
-       at /nix/store/x07163ji3xcrbalyyn31x59lv6w5rmaw-source/modules/nixos/nvidia.nix:11:12:
-
-           10|   };
-           11|   config = lib.mkif config.nvidia.enable {
-             |            ^
-           12|     #Nvidia GPU support
-       Did you mean one of mkIf or min?
+building the system configuration...
+warning: Git tree '/home/sahil/.dotfiles' is dirty
+these 8 derivations will be built:
+  /nix/store/dzb6lac7850gwyna23clznaa9zbf216s-unit-script-nixos-upgrade-start.drv
+  /nix/store/a2vvgvynp57fddbr9x1g9azy0sjg6i88-unit-nixos-upgrade.service.drv
+  /nix/store/bg6npwfb7r43yhzih550vz7cvgk8ddq6-system-units.drv
+  /nix/store/25lrhxhdva8i3fvic83si043ms0klhv6-etc.drv
+  /nix/store/j7r6a6c4nz9j2n4cdy4sy40h66brzkw0-nixos-system-nixos-no-nvidia-24.11.20240624.2893f56.drv
+  /nix/store/g5mr5zrvzn5fqc7v5xbqhz7di1633l1n-system-units.drv
+  /nix/store/kn2b03dx6krr4a8mkdcmw323wamk9a9s-etc.drv
+  /nix/store/8pdr0c6vmi088iwflmda7q72pzm8z527-nixos-system-nixos-24.11.20240624.2893f56.drv
+building '/nix/store/dzb6lac7850gwyna23clznaa9zbf216s-unit-script-nixos-upgrade-start.drv'...
+building '/nix/store/a2vvgvynp57fddbr9x1g9azy0sjg6i88-unit-nixos-upgrade.service.drv'...
+building '/nix/store/bg6npwfb7r43yhzih550vz7cvgk8ddq6-system-units.drv'...
+building '/nix/store/g5mr5zrvzn5fqc7v5xbqhz7di1633l1n-system-units.drv'...
+building '/nix/store/25lrhxhdva8i3fvic83si043ms0klhv6-etc.drv'...
+building '/nix/store/kn2b03dx6krr4a8mkdcmw323wamk9a9s-etc.drv'...
+building '/nix/store/j7r6a6c4nz9j2n4cdy4sy40h66brzkw0-nixos-system-nixos-no-nvidia-24.11.20240624.2893f56.drv'...
+building '/nix/store/8pdr0c6vmi088iwflmda7q72pzm8z527-nixos-system-nixos-24.11.20240624.2893f56.drv'...
+activating the configuration...
+setting up /etc...
+reloading user units for sahil...
+restarting sysinit-reactivation.target

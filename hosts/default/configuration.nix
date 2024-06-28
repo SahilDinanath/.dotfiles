@@ -5,6 +5,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 {
@@ -12,9 +13,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-    #extra
+    # Extra 
     ../../modules/nixos/default.nix
   ];
+
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -66,12 +68,63 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  #CPU
-  #A common tool used to save power on laptops, which has sensible defaults for most laptops.
-  #services.auto-cpufreq.enable = true;
 
-  #Enables Nvidia Graphics
-  nvidia.enable = true;
+  #add Nvidia support if not in specialisation aka no-nvidia
+  config = lib.mkIf (config.specialisation != { }) {
+    #Nvidia GPU support
+    # Enable OpenGL
+    hardware.graphics.enable = true;
+    # Load nvidia driver for Xorg and Wayland
+    services.xserver.videoDrivers = [ "nvidia" ];
+
+    hardware.nvidia = {
+      # Modesetting is required.
+      modesetting.enable = true;
+      # Enable this if you have graphical corruption issues or application crashes after waking
+      powerManagement.enable = false;
+      # Fine-grained power management. Turns off GPU when not in use. Experimental.
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+
+    hardware.nvidia.prime = {
+      sync.enable = true;
+
+      amdgpuBusId = "PCI:52:0:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+    nixpkgs.config.cudaSupport = true;
+  };
+
+  specialisation = {
+    no-nvidia.configuration = {
+      system.nixos.tags = [ "no-nvidia" ];
+      boot.extraModprobeConfig = ''
+        blacklist nouveau
+        options nouveau modeset=0
+      '';
+
+      services.udev.extraRules = ''
+        # Remove NVIDIA USB xHCI Host Controller devices, if present
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{remove}="1"
+        # Remove NVIDIA USB Type-C UCSI devices, if present
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{remove}="1"
+        # Remove NVIDIA Audio devices, if present
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
+        # Remove NVIDIA VGA/3D controller devices
+        ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
+      '';
+      boot.blacklistedKernelModules = [
+        "nouveau"
+        "nvidia"
+        "nvidia_drm"
+        "nvidia_modeset"
+      ];
+    };
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -271,7 +324,7 @@
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
+  # Before changing this value read the documentation for this optionjjjj
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
