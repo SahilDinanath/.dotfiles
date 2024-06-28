@@ -8,7 +8,7 @@
   options = {
     nvidia.enable = lib.mkEnableOption "enables nvidia";
   };
-  config = lib.mkif config.nvidia.enable {
+  config = lib.mkIf config.nvidia.enable {
     #Nvidia GPU support
     # Enable OpenGL
     hardware.graphics.enable = true;

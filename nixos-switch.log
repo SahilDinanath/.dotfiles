@@ -1,34 +1,31 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-building the system configuration...
-warning: Git tree '/home/sahil/.dotfiles' is dirty
-these 11 derivations will be built:
-  /nix/store/vx0mqd7xrlbcmnabgp4bnfyp82vir47v-home-manager-files.drv
-  /nix/store/16wbpl11k0y9apwk8xk8x2sfknnyd4zq-home-manager-generation.drv
-  /nix/store/3xzyw6p0b41dwbr5b4vcx2r1zk7p72hf-unit-home-manager-sahil.service.drv
-  /nix/store/rlv5zh8lg5g19j4cvlix3jxyijws5fw6-unit-script-nixos-upgrade-start.drv
-  /nix/store/wapj4pi61njnyq837a3321bp5xmkn57k-unit-nixos-upgrade.service.drv
-  /nix/store/78k0fkln1sjhia5prs9dly4hsa7gb7xw-system-units.drv
-  /nix/store/0cj5fzd2mxk2whbrvbnan2hm76ghpqjl-etc.drv
-  /nix/store/4mhkz2g8gwnsvgfzlhxh8bahnw3pn4ha-system-units.drv
-  /nix/store/4h5ki71ir0v603jjp6f0h1j4sy8cdlhn-etc.drv
-  /nix/store/z3k0jxnhxxvkp2fidd8740bhnqfy6bw3-nixos-system-nixos-no-nvidia-24.11.20240624.2893f56.drv
-  /nix/store/qx97x4gjrimb8hj90aj5g91xbfblykj2-nixos-system-nixos-24.11.20240624.2893f56.drv
-building '/nix/store/rlv5zh8lg5g19j4cvlix3jxyijws5fw6-unit-script-nixos-upgrade-start.drv'...
-building '/nix/store/vx0mqd7xrlbcmnabgp4bnfyp82vir47v-home-manager-files.drv'...
-building '/nix/store/wapj4pi61njnyq837a3321bp5xmkn57k-unit-nixos-upgrade.service.drv'...
-building '/nix/store/16wbpl11k0y9apwk8xk8x2sfknnyd4zq-home-manager-generation.drv'...
-building '/nix/store/3xzyw6p0b41dwbr5b4vcx2r1zk7p72hf-unit-home-manager-sahil.service.drv'...
-building '/nix/store/4mhkz2g8gwnsvgfzlhxh8bahnw3pn4ha-system-units.drv'...
-building '/nix/store/78k0fkln1sjhia5prs9dly4hsa7gb7xw-system-units.drv'...
-building '/nix/store/4h5ki71ir0v603jjp6f0h1j4sy8cdlhn-etc.drv'...
-building '/nix/store/0cj5fzd2mxk2whbrvbnan2hm76ghpqjl-etc.drv'...
-building '/nix/store/z3k0jxnhxxvkp2fidd8740bhnqfy6bw3-nixos-system-nixos-no-nvidia-24.11.20240624.2893f56.drv'...
-building '/nix/store/qx97x4gjrimb8hj90aj5g91xbfblykj2-nixos-system-nixos-24.11.20240624.2893f56.drv'...
-activating the configuration...
-setting up /etc...
-reloading user units for sahil...
-restarting sysinit-reactivation.target
-restarting the following units: home-manager-sahil.service
-Job for home-manager-sahil.service failed because the control process exited with error code.
-See "systemctl status home-manager-sahil.service" and "journalctl -xeu home-manager-sahil.service" for details.
-warning: error(s) occurred while switching to the new configuration
+error:
+       … while calling the 'seq' builtin
+
+         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:322:18:
+
+          321|         options = checked options;
+          322|         config = checked (removeAttrs config [ "_module" ]);
+             |                  ^
+          323|         _module = checked (config._module);
+
+       … while evaluating a branch condition
+
+         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:261:9:
+
+          260|       checkUnmatched =
+          261|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [] then
+             |         ^
+          262|           let
+
+       (stack trace truncated; use '--show-trace' to show the full trace)
+
+       error: attribute 'mkif' missing
+
+       at /nix/store/x07163ji3xcrbalyyn31x59lv6w5rmaw-source/modules/nixos/nvidia.nix:11:12:
+
+           10|   };
+           11|   config = lib.mkif config.nvidia.enable {
+             |            ^
+           12|     #Nvidia GPU support
+       Did you mean one of mkIf or min?
