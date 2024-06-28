@@ -5,6 +5,7 @@ return {
 	config = function()
 		-- Optionally configure and load the colorscheme
 		-- directly inside the plugin declaration.
+		-- :h gruvbox-material
 		vim.cmd.colorscheme("gruvbox-material")
 	end,
 }

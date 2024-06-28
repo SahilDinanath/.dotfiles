@@ -66,14 +66,7 @@
     EDITOR = "nvim";
   };
 
-  imports = [
-    ../../modules/home-manager/git.nix
-    ../../modules/home-manager/tmux.nix
-    ../../modules/home-manager/bash.nix
-    # ../../modules/home-manager/fish.nix
-    ../../modules/home-manager/nvim.nix
-    ../../modules/home-manager/config.nix
-  ];
+  imports = [ ../../modules/home-manager/default.nix ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
