@@ -20,11 +20,11 @@ error:
 
        (stack trace truncated; use '--show-trace' to show the full trace)
 
-       error: undefined variable 'minecraft-server'
+       error: syntax error, unexpected INT
 
-       at /nix/store/9ksx1wdicid9748ilkpw9a99nkjfapi6-source/modules/nixos/minecraft.nix:18:17:
+       at /nix/store/9gkpspi44clpmj3l9hhwzxpzfphxjysg-source/modules/nixos/minecraft.nix:19:9:
 
-           17|       openFirewall = true;
-           18|       package = minecraft-server;
-             |                 ^
-           19|
+           18|       whitelist = {
+           19|         4Vertigo = "e751d7b9-c38a-4fd5-875c-1e142fb660c9";
+             |         ^
+           20|       };

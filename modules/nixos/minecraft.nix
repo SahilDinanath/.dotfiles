@@ -16,9 +16,9 @@
       eula = true;
       openFirewall = true;
       whitelist = {
-        4Vertigo = "e751d7b9-c38a-4fd5-875c-1e142fb660c9";
+        vertigo = "e751d7b9-c38a-4fd5-875c-1e142fb660c9";
       };
-      
+
       serverProperties = {
         server-port = 43000;
         difficulty = 3;
