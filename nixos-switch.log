@@ -1,30 +1,32 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-error:
-       … while calling the 'seq' builtin
-
-         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:322:18:
-
-          321|         options = checked options;
-          322|         config = checked (removeAttrs config [ "_module" ]);
-             |                  ^
-          323|         _module = checked (config._module);
-
-       … while evaluating a branch condition
-
-         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:261:9:
-
-          260|       checkUnmatched =
-          261|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [] then
-             |         ^
-          262|           let
-
-       (stack trace truncated; use '--show-trace' to show the full trace)
-
-       error: attribute 'hardware' already defined at /nix/store/5dhxy0r43nm1a2bld1i5bi8fdg0q61fj-source/hosts/default/configuration.nix:52:3
-
-       at /nix/store/5dhxy0r43nm1a2bld1i5bi8fdg0q61fj-source/hosts/default/configuration.nix:76:3:
-
-           75|
-           76|   hardware = lib.mkMerge [
-             |   ^
-           77|     lib.mkIf
+building the system configuration...
+warning: Git tree '/home/sahil/.dotfiles' is dirty
+these 11 derivations will be built:
+  /nix/store/1bwa837wf26710g4x795c848886w9ydj-unit-script-nixos-upgrade-start.drv
+  /nix/store/sdc630x4k80hhm5h52jk68v1p1hsjvb4-whitelist.json.drv
+  /nix/store/20hw1hjaxbb2a1cj2ik646ik8gny74pv-unit-script-minecraft-server-pre-start.drv
+  /nix/store/lcgkc1yym7cd6lg040ypq1kr3kf92wm9-unit-minecraft-server.service.drv
+  /nix/store/nq62amx59xc2z3l056hghlclgh2npz2p-unit-nixos-upgrade.service.drv
+  /nix/store/jy8dkqvk3jqc00331z4cgzbrrksidwgz-system-units.drv
+  /nix/store/2kfia5wmwysc7x2qyhcmzc2qnwagvjqg-etc.drv
+  /nix/store/98lzzfap2r80n681a6r6zbxvv4kgky27-system-units.drv
+  /nix/store/q1zdxhkb27hs059d50400i5vpksl89a0-etc.drv
+  /nix/store/fw19lmkg3fsfcs7bv4xrjvf9mxnlayyg-nixos-system-nixos-no-nvidia-24.11.20240624.2893f56.drv
+  /nix/store/wj2x9w95yrji2ww4g26l2jb7bvygllly-nixos-system-nixos-24.11.20240624.2893f56.drv
+building '/nix/store/1bwa837wf26710g4x795c848886w9ydj-unit-script-nixos-upgrade-start.drv'...
+building '/nix/store/sdc630x4k80hhm5h52jk68v1p1hsjvb4-whitelist.json.drv'...
+building '/nix/store/nq62amx59xc2z3l056hghlclgh2npz2p-unit-nixos-upgrade.service.drv'...
+building '/nix/store/20hw1hjaxbb2a1cj2ik646ik8gny74pv-unit-script-minecraft-server-pre-start.drv'...
+building '/nix/store/lcgkc1yym7cd6lg040ypq1kr3kf92wm9-unit-minecraft-server.service.drv'...
+building '/nix/store/98lzzfap2r80n681a6r6zbxvv4kgky27-system-units.drv'...
+building '/nix/store/jy8dkqvk3jqc00331z4cgzbrrksidwgz-system-units.drv'...
+building '/nix/store/q1zdxhkb27hs059d50400i5vpksl89a0-etc.drv'...
+building '/nix/store/2kfia5wmwysc7x2qyhcmzc2qnwagvjqg-etc.drv'...
+building '/nix/store/fw19lmkg3fsfcs7bv4xrjvf9mxnlayyg-nixos-system-nixos-no-nvidia-24.11.20240624.2893f56.drv'...
+building '/nix/store/wj2x9w95yrji2ww4g26l2jb7bvygllly-nixos-system-nixos-24.11.20240624.2893f56.drv'...
+stopping the following units: minecraft-server.service, minecraft-server.socket
+activating the configuration...
+setting up /etc...
+reloading user units for sahil...
+restarting sysinit-reactivation.target
+starting the following units: minecraft-server.socket
