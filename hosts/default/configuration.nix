@@ -157,6 +157,8 @@
       bottles
       vesktop
       libreoffice
+      #minecraft
+      prismlauncher
 
       #terminal
       fd
