@@ -70,33 +70,32 @@
   };
 
   #add Nvidia support if not in specialisation aka no-nvidia
-  config = lib.optionalAttrs (config.specialisation == { }) {
-    #Nvidia GPU support
-    # Enable OpenGL
-    hardware.graphics.enable = true;
-    # Load nvidia driver for Xorg and Wayland
-    services.xserver.videoDrivers = [ "nvidia" ];
+  #Nvidia GPU support
+  # Enable OpenGL
 
-    hardware.nvidia = {
-      # Modesetting is required.
-      modesetting.enable = true;
-      # Enable this if you have graphical corruption issues or application crashes after waking
-      powerManagement.enable = false;
-      # Fine-grained power management. Turns off GPU when not in use. Experimental.
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
+  hardware.graphics.enable = true;
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-    hardware.nvidia.prime = {
-      sync.enable = true;
-
-      amdgpuBusId = "PCI:52:0:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-    nixpkgs.config.cudaSupport = true;
+  hardware.nvidia = {
+    # Modesetting is required.
+    modesetting.enable = true;
+    # Enable this if you have graphical corruption issues or application crashes after waking
+    powerManagement.enable = false;
+    # Fine-grained power management. Turns off GPU when not in use. Experimental.
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  hardware.nvidia.prime = {
+    sync.enable = true;
+
+    amdgpuBusId = "PCI:52:0:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+  nixpkgs.config.cudaSupport = true;
 
   specialisation = {
     no-nvidia.configuration = {
@@ -300,6 +299,8 @@
     options = "--delete-older-than 30d";
   };
 
+  ### Extra
+  minecraft-server.enable = true;
   ######################################################################
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
