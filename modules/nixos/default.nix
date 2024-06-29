@@ -5,5 +5,5 @@
   ...
 }:
 {
-  imports = [ ];
+  imports = [ ./minecraft.nix ];
 }

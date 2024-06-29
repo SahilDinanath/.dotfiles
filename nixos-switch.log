@@ -9,15 +9,17 @@ error:
              |                  ^
           323|         _module = checked (config._module);
 
-       … while evaluating a branch condition
+       … while calling the 'throw' builtin
 
-         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:261:9:
+         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:298:18:
 
-          260|       checkUnmatched =
-          261|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [] then
-             |         ^
-          262|           let
+          297|                     ''
+          298|             else throw baseMsg
+             |                  ^
+          299|         else null;
 
-       (stack trace truncated; use '--show-trace' to show the full trace)
-
-       error: Module `/nix/store/4rnrn6g0p05a15ii6jwc17cgwfb75p3f-source/hosts/default/configuration.nix' has an unsupported attribute `boot'. This is caused by introducing a top-level `config' or `options' attribute. Add configuration attributes immediately on the top level instead, or move all of them (namely: boot environment fonts hardware home-manager i18n networking nix nixpkgs programs security services sound specialisation system time users) into the explicit `config' attribute.
+       error: The option `minecraft-server' does not exist. Definition values:
+       - In `/nix/store/jwhamdfbbrb4v2sa1ym3c7zkl77g4isz-source/hosts/default/configuration.nix':
+           {
+             enable = true;
+           }
