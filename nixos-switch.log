@@ -1,26 +1,30 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-building the system configuration...
-warning: Git tree '/home/sahil/.dotfiles' is dirty
 error:
-       … while calling the 'head' builtin
+       … while calling the 'seq' builtin
 
-         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/attrsets.nix:1575:11:
+         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:322:18:
 
-         1574|         || pred here (elemAt values 1) (head values) then
-         1575|           head values
-             |           ^
-         1576|         else
+          321|         options = checked options;
+          322|         config = checked (removeAttrs config [ "_module" ]);
+             |                  ^
+          323|         _module = checked (config._module);
 
-       … while evaluating the attribute 'value'
+       … while evaluating a branch condition
 
-         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:809:9:
+         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:261:9:
 
-          808|     in warnDeprecation opt //
-          809|       { value = builtins.addErrorContext "while evaluating the option `${showOption loc}':" value;
+          260|       checkUnmatched =
+          261|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [] then
              |         ^
-          810|         inherit (res.defsFinal') highestPrio;
+          262|           let
 
        (stack trace truncated; use '--show-trace' to show the full trace)
 
-       error: A definition for option `services.minecraft-server.package' is not of type `package'. Definition values:
-       - In `/nix/store/84ccrhaskzki6i4c9hash6z8zlk2i5lc-source/modules/nixos/minecraft.nix': "minecraft-server"
+       error: undefined variable 'minecraft-server'
+
+       at /nix/store/9ksx1wdicid9748ilkpw9a99nkjfapi6-source/modules/nixos/minecraft.nix:18:17:
+
+           17|       openFirewall = true;
+           18|       package = minecraft-server;
+             |                 ^
+           19|
