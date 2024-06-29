@@ -8,9 +8,11 @@ let
   # check every 20 seconds if the server
   # need to be stopped
   frequency-check-players = "*-*-* *:*:0/20";
+
   # time in second before we could stop the server
   # this should let it time to spawn
   minimum-server-lifetime = 300;
+
   # minecraft port
   # used in a few places in the code
   # this is not the port that should be used publicly
@@ -21,11 +23,12 @@ let
   # and the one that should be used by players
   # you need to open it in the firewall
   public-port = 43000;
+
   # a rcon password used by the local systemd commands
   # to get information about the server such as the
   # player list
   # this will be stored plaintext in the store
-  rcon-password = "TheGents";
+  rcon-password = "260a368f55f4fb4fa";
 
   # a script used by hook-minecraft.service
   # to start minecraft and the timer regularly
@@ -82,13 +85,14 @@ in
       declarative = true;
       eula = true;
       openFirewall = true;
+
       whitelist = {
         higanbaka = "2e82c5bb-9e99-4f37-9f48-2027ff802377";
         vertigo = "e751d7b9-c38a-4fd5-875c-1e142fb660c9";
       };
 
       serverProperties = {
-        server-port = public-port;
+        server-port = minecraft-port;
         difficulty = 3;
         gamemode = 1;
         max-players = 5;
