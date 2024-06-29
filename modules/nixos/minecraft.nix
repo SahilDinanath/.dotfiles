@@ -20,7 +20,7 @@ let
   # this is the port that will trigger the server start
   # and the one that should be used by players
   # you need to open it in the firewall
-  public-port = 25565;
+  public-port = 43000;
   # a rcon password used by the local systemd commands
   # to get information about the server such as the
   # player list
