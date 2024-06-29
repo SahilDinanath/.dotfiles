@@ -97,12 +97,13 @@ in
         enable-rcon = true;
         "rcon.password" = rcon-password;
       };
-
     };
+
     # don't start Minecraft on startup
     systemd.services.minecraft-server = {
       wantedBy = pkgs.lib.mkForce [ ];
     };
+
     # this waits for incoming connection on public-port
     # and triggers listen-minecraft.service upon connection
     systemd.sockets.listen-minecraft = {
@@ -111,6 +112,7 @@ in
       requires = [ "network.target" ];
       listenStreams = [ "${toString public-port}" ];
     };
+
     # this is triggered by a connection on TCP port public-port
     # start hook-minecraft if not running yet and wait for it to return
     # then, proxify the TCP connection to the real Minecraft port on localhost
@@ -126,50 +128,54 @@ in
         "listen-minecraft.socket"
       ];
       serviceConfig.ExecStart = "${pkgs.systemd.out}/lib/systemd/systemd-socket-proxyd 127.0.0.1:${toString minecraft-port}";
-      # this starts Minecraft is required
-      # and wait for it to be available over TCP
-      # to unlock listen-minecraft.service proxy
-      systemd.services.hook-minecraft = {
-        path = with pkgs; [
-          systemd
-          libressl
-          busybox
-        ];
-        enable = true;
-        serviceConfig = {
-          ExecStartPost = "${wait-tcp.out}/bin/wait-tcp";
-          ExecStart = "${start-mc.out}/bin/start-mc";
-        };
-      }; # create a timer running every frequency-check-players
-      # that runs stop-minecraft.service script on a regular
-      # basis to check if the server needs to be stopped
-      systemd.timers.stop-minecraft = {
-        enable = true;
-        timerConfig = {
-          OnCalendar = "${frequency-check-players}";
-          Unit = "stop-minecraft.service";
-        };
-        wantedBy = [ "timers.target" ];
-      };
+    };
 
-      # run the script no-player-connected
-      # and if it returns true, stop the minecraft-server
-      # but also the timer and the hook-minecraft service
-      # to prepare a working state ready to resume the
-      # server again
-      systemd.services.stop-minecraft = {
-        enable = true;
-        serviceConfig.Type = "oneshot";
-        script = ''
-          if ${no-player-connected}/bin/no-player-connected
-          then
-            echo "stopping server"
-            systemctl stop minecraft-server.service
-            systemctl stop hook-minecraft.service
-            systemctl stop stop-minecraft.timer
-          fi
-        '';
+    # this starts Minecraft is required
+    # and wait for it to be available over TCP
+    # to unlock listen-minecraft.service proxy
+    systemd.services.hook-minecraft = {
+      path = with pkgs; [
+        systemd
+        libressl
+        busybox
+      ];
+      enable = true;
+      serviceConfig = {
+        ExecStartPost = "${wait-tcp.out}/bin/wait-tcp";
+        ExecStart = "${start-mc.out}/bin/start-mc";
       };
     };
+
+    # create a timer running every frequency-check-players
+    # that runs stop-minecraft.service script on a regular
+    # basis to check if the server needs to be stopped
+    systemd.timers.stop-minecraft = {
+      enable = true;
+      timerConfig = {
+        OnCalendar = "${frequency-check-players}";
+        Unit = "stop-minecraft.service";
+      };
+      wantedBy = [ "timers.target" ];
+    };
+
+    # run the script no-player-connected
+    # and if it returns true, stop the minecraft-server
+    # but also the timer and the hook-minecraft service
+    # to prepare a working state ready to resume the
+    # server again
+    systemd.services.stop-minecraft = {
+      enable = true;
+      serviceConfig.Type = "oneshot";
+      script = ''
+        if ${no-player-connected}/bin/no-player-connected
+        then
+          echo "stopping server"
+          systemctl stop minecraft-server.service
+          systemctl stop hook-minecraft.service
+          systemctl stop stop-minecraft.timer
+        fi
+      '';
+    };
+
   };
 }
