@@ -1,30 +1,32 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-error:
-       … while calling the 'seq' builtin
-
-         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:322:18:
-
-          321|         options = checked options;
-          322|         config = checked (removeAttrs config [ "_module" ]);
-             |                  ^
-          323|         _module = checked (config._module);
-
-       … while evaluating a branch condition
-
-         at /nix/store/bi5zxc0v5g6ylygdwyqzh280sccg3ykb-source/lib/modules.nix:261:9:
-
-          260|       checkUnmatched =
-          261|         if config._module.check && config._module.freeformType == null && merged.unmatchedDefns != [] then
-             |         ^
-          262|           let
-
-       (stack trace truncated; use '--show-trace' to show the full trace)
-
-       error: syntax error, unexpected INT
-
-       at /nix/store/9gkpspi44clpmj3l9hhwzxpzfphxjysg-source/modules/nixos/minecraft.nix:19:9:
-
-           18|       whitelist = {
-           19|         4Vertigo = "e751d7b9-c38a-4fd5-875c-1e142fb660c9";
-             |         ^
-           20|       };
+building the system configuration...
+warning: Git tree '/home/sahil/.dotfiles' is dirty
+these 11 derivations will be built:
+  /nix/store/nhikfz27a7pybv54av1jvfqmbz519im0-unit-script-nixos-upgrade-start.drv
+  /nix/store/gzjcb9rkgbw142zlw9ybf9n80mkr8g0a-unit-nixos-upgrade.service.drv
+  /nix/store/kiri45p1sr2hl689234g7f5vvf4qhny1-whitelist.json.drv
+  /nix/store/l2scfp0sdhv3cd44qqim7lhbddz63has-unit-script-minecraft-server-pre-start.drv
+  /nix/store/p3wvkncw66yzn53mc0wc4n1k45912wsq-unit-minecraft-server.service.drv
+  /nix/store/09lwxf3jgljjlc87pnlm0vr5a6k7icm6-system-units.drv
+  /nix/store/bjvv8n86kfaw0ki7p112q49cv9vwyn83-system-units.drv
+  /nix/store/c63p5h87kz94b47c2k8qy49j2gvfavb7-etc.drv
+  /nix/store/d195bba3d73vl2xxk85jwzv9xcl4z47j-etc.drv
+  /nix/store/n6vypm42ry5k5hpkn4g0vrjwdwhwr7zv-nixos-system-nixos-no-nvidia-24.11.20240624.2893f56.drv
+  /nix/store/nsw07d379hxq97hfmxy5dnpk8053wlhz-nixos-system-nixos-24.11.20240624.2893f56.drv
+building '/nix/store/nhikfz27a7pybv54av1jvfqmbz519im0-unit-script-nixos-upgrade-start.drv'...
+building '/nix/store/kiri45p1sr2hl689234g7f5vvf4qhny1-whitelist.json.drv'...
+building '/nix/store/gzjcb9rkgbw142zlw9ybf9n80mkr8g0a-unit-nixos-upgrade.service.drv'...
+building '/nix/store/l2scfp0sdhv3cd44qqim7lhbddz63has-unit-script-minecraft-server-pre-start.drv'...
+building '/nix/store/p3wvkncw66yzn53mc0wc4n1k45912wsq-unit-minecraft-server.service.drv'...
+building '/nix/store/09lwxf3jgljjlc87pnlm0vr5a6k7icm6-system-units.drv'...
+building '/nix/store/bjvv8n86kfaw0ki7p112q49cv9vwyn83-system-units.drv'...
+building '/nix/store/c63p5h87kz94b47c2k8qy49j2gvfavb7-etc.drv'...
+building '/nix/store/d195bba3d73vl2xxk85jwzv9xcl4z47j-etc.drv'...
+building '/nix/store/n6vypm42ry5k5hpkn4g0vrjwdwhwr7zv-nixos-system-nixos-no-nvidia-24.11.20240624.2893f56.drv'...
+building '/nix/store/nsw07d379hxq97hfmxy5dnpk8053wlhz-nixos-system-nixos-24.11.20240624.2893f56.drv'...
+stopping the following units: minecraft-server.service, minecraft-server.socket
+activating the configuration...
+setting up /etc...
+reloading user units for sahil...
+restarting sysinit-reactivation.target
+starting the following units: minecraft-server.socket
