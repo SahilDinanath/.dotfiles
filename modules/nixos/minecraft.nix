@@ -15,7 +15,7 @@
       declarative = true;
       eula = true;
       openFirewall = true;
-      package = "minecraft-server";
+      package = minecraft-server;
 
       serverProperties = {
         server-port = 43000;
