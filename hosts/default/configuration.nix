@@ -99,31 +99,29 @@
     };
   };
 
-  config = lib.mkIf (config.specialisation != { }) {
-    hardware.graphics.enable = true;
-    # Load nvidia driver for Xorg and Wayland
-    services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics.enable = true;
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-    hardware.nvidia = {
-      # Modesetting is required.
-      modesetting.enable = true;
-      # Enable this if you have graphical corruption issues or application crashes after waking
-      powerManagement.enable = false;
-      # Fine-grained power management. Turns off GPU when not in use. Experimental.
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-
-    hardware.nvidia.prime = {
-      sync.enable = true;
-
-      amdgpuBusId = "PCI:52:0:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-    nixpkgs.config.cudaSupport = true;
+  hardware.nvidia = {
+    # Modesetting is required.
+    modesetting.enable = true;
+    # Enable this if you have graphical corruption issues or application crashes after waking
+    powerManagement.enable = false;
+    # Fine-grained power management. Turns off GPU when not in use. Experimental.
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  hardware.nvidia.prime = {
+    sync.enable = true;
+
+    amdgpuBusId = "PCI:52:0:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+  nixpkgs.config.cudaSupport = true;
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 

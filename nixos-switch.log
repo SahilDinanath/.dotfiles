@@ -20,4 +20,11 @@ error:
 
        (stack trace truncated; use '--show-trace' to show the full trace)
 
-       error: Module `/nix/store/b422x121y69s00lq279d12ynqzv96h6x-source/hosts/default/configuration.nix' has an unsupported attribute `boot'. This is caused by introducing a top-level `config' or `options' attribute. Add configuration attributes immediately on the top level instead, or move all of them (namely: boot environment fonts hardware home-manager i18n minecraft-server networking nix nixpkgs programs security services sound system time users) into the explicit `config' attribute.
+       error: attribute 'hardware' already defined at /nix/store/5dhxy0r43nm1a2bld1i5bi8fdg0q61fj-source/hosts/default/configuration.nix:52:3
+
+       at /nix/store/5dhxy0r43nm1a2bld1i5bi8fdg0q61fj-source/hosts/default/configuration.nix:76:3:
+
+           75|
+           76|   hardware = lib.mkMerge [
+             |   ^
+           77|     lib.mkIf

@@ -16,6 +16,7 @@
       eula = true;
       openFirewall = true;
       whitelist = {
+        higanbaka = "2e82c5bb-9e99-4f37-9f48-2027ff802377";
         vertigo = "e751d7b9-c38a-4fd5-875c-1e142fb660c9";
       };
 
