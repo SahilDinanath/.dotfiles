@@ -80,7 +80,9 @@ in
   };
 
   config = lib.mkIf config.minecraft-server.enable {
+
     services.minecraft-server = {
+
       enable = true;
       declarative = true;
       eula = true;
@@ -92,11 +94,16 @@ in
         vertigo = "e751d7b9-c38a-4fd5-875c-1e142fb660c9";
       };
 
+      #directory of server save
+      dataDir = "/var/lib/minecraft/";
+
       serverProperties = {
         server-port = minecraft-port;
-        difficulty = 3;
-        gamemode = 1;
+        difficulty = "hard";
+        force-gamemode = true;
+        gamemode = "survival";
         max-players = 5;
+
         motd = "NixOS Minecraft server!";
         white-list = true;
         enable-rcon = true;

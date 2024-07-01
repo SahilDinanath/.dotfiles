@@ -138,7 +138,6 @@
     #software
     packages = with pkgs; [
       firefox
-      qutebrowser
       steam
       #  thunderbird
       #apps
@@ -159,6 +158,7 @@
       prismlauncher
 
       #terminal
+      tldr
       fd
       tmux
       eza
@@ -316,8 +316,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 43000 ];
+  networking.firewall.allowedUDPPorts = [ 43000 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
