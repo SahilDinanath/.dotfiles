@@ -89,7 +89,6 @@ in
       openFirewall = true;
 
       whitelist = {
-        bigliamdalion = "10d42246-0a5c-4e44-8617-5f228f1fe099";
         duskerknight = "8fcc9e97-1910-43d2-a9f3-8de96a596a86";
         higanbaka = "2e82c5bb-9e99-4f37-9f48-2027ff802377";
         vertigo = "e751d7b9-c38a-4fd5-875c-1e142fb660c9";
