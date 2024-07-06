@@ -6,26 +6,30 @@ return {
 		local dapui = require("dapui")
 		require("nvim-dap-virtual-text").setup()
 		dapui.setup()
+
+		vim.keymap.set("n", "<F1>", dap.restart, { desc = "DAP restart" })
+
 		vim.keymap.set("n", "<F5>", function()
 			dap.continue()
-		end)
+		end, { desc = "DAP continue" })
 		vim.keymap.set("n", "<F10>", function()
 			dap.step_over()
-		end)
+		end, { desc = "DAP step over" })
+
 		vim.keymap.set("n", "<F11>", function()
 			dap.step_into()
-		end)
+		end, { desc = "DAP step into" })
 		vim.keymap.set("n", "<F12>", function()
 			dap.step_out()
-		end)
+		end, { desc = "DAP step out" })
+
 		vim.keymap.set("n", "<Leader>db", function()
 			dap.toggle_breakpoint()
 		end, { desc = "[D]ebug toggle [B]reak point" })
 
-		vim.keymap.set("n", "<Leader>dp", function()
-			dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-		end, { desc = "[D]ebug message [P]rint" })
-
+		vim.keymap.set("n", "<space>de", function()
+			require("dapui").eval(nil, { desc = "[D]ebug [E]val", enter = true })
+		end)
 		vim.keymap.set("n", "<Leader>dl", function()
 			dap.run_last()
 		end, { desc = "[D]ebug run [L]ast" })
