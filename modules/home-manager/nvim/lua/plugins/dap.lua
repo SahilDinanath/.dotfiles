@@ -28,12 +28,12 @@ return {
 		end, { desc = "[D]ebug toggle [B]reak point" })
 
 		vim.keymap.set("n", "<space>de", function()
-			require("dapui").eval(nil, { desc = "[D]ebug [E]val", enter = true })
-		end)
+			require("dapui").eval(nil, { enter = true })
+		end, { desc = "[D]ebug [E]val" })
 		vim.keymap.set("n", "<Leader>dl", function()
 			dap.run_last()
 		end, { desc = "[D]ebug run [L]ast" })
-
+		vim.keymap.set("n", "<leader>dt", dapui.toggle, { desc = "[D]ebug [T]oggle" })
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
 		end
