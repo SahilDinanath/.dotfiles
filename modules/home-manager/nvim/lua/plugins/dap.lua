@@ -7,11 +7,16 @@ return {
 		require("nvim-dap-virtual-text").setup()
 		dapui.setup()
 
-		vim.keymap.set("n", "<F1>", dap.restart, { desc = "DAP restart" })
-
 		vim.keymap.set("n", "<F5>", function()
 			dap.continue()
 		end, { desc = "DAP continue" })
+
+		vim.keymap.set("n", "<F6>", function()
+			dap.terminate()
+		end, { desc = "DAP quit" })
+
+		vim.keymap.set("n", "<F7>", dap.restart, { desc = "DAP restart" })
+
 		vim.keymap.set("n", "<F10>", function()
 			dap.step_over()
 		end, { desc = "DAP step over" })
@@ -28,11 +33,9 @@ return {
 		end, { desc = "[D]ebug toggle [B]reak point" })
 
 		vim.keymap.set("n", "<space>de", function()
-			require("dapui").eval(nil, { enter = true })
+			dapui.eval(nil, { enter = true })
 		end, { desc = "[D]ebug [E]val" })
-		vim.keymap.set("n", "<Leader>dl", function()
-			dap.run_last()
-		end, { desc = "[D]ebug run [L]ast" })
+
 		vim.keymap.set("n", "<leader>dt", dapui.toggle, { desc = "[D]ebug [T]oggle" })
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
