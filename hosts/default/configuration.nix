@@ -178,6 +178,8 @@
       clang-tools
       lua-language-server
       nixd
+      #debuggers
+      gdb
       #formatters
       nixfmt-rfc-style
       stylua
