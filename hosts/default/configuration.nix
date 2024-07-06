@@ -129,6 +129,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
   users.users.sahil = {
     isNormalUser = true;
     description = "Sahil Dinanath";
@@ -140,7 +141,6 @@
     packages = with pkgs; [
       firefox
       steam
-      #  thunderbird
       #apps
       discord
       alacritty
@@ -155,8 +155,9 @@
       bottles
       vesktop
       libreoffice
-      #minecraft
+      #Games
       prismlauncher
+      duckstation
 
       #terminal
       tldr
@@ -199,6 +200,8 @@
 
       #miscellaneous
       lshw
+      man-pages
+      man-pages-posix
 
       #Gnome extensions
       gnomeExtensions.gsconnect
@@ -237,7 +240,7 @@
   #######################################
   #developer settings
   programs.direnv.enable = true;
-
+  documentation.dev.enable = true;
   ###################### i3 ############################################
   #https://nixos.wiki/wiki/I3
   # links /libexec from derivations to /run/current-system/sw 
@@ -318,7 +321,7 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 43000 ];
-  networking.firewall.allowedUDPPorts = [ 43000 ];
+  #networking.firewall.allowedUDPPorts = [ 43000 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
@@ -326,7 +329,7 @@
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this optionjjjj
+  # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 

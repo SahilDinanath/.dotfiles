@@ -23,6 +23,8 @@ vim.opt.cursorlineopt = "number"
 vim.opt.scrolloff = 15
 vim.opt.hlsearch = true
 vim.opt.showmode = false
+--colorscheme
+vim.cmd.colorscheme("retrobox")
 -- keymaps
 -- general
 vim.keymap.set("i", "jk", "<Esc>")

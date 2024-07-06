@@ -1,25 +1,25 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-error:
-       … while calling the 'seq' builtin
-
-         at /nix/store/xjn3184743q0fxayzwrhil2i06pr61x8-source/lib/modules.nix:322:18:
-
-          321|         options = checked options;
-          322|         config = checked (removeAttrs config [ "_module" ]);
-             |                  ^
-          323|         _module = checked (config._module);
-
-       … while calling the 'throw' builtin
-
-         at /nix/store/xjn3184743q0fxayzwrhil2i06pr61x8-source/lib/modules.nix:298:18:
-
-          297|                     ''
-          298|             else throw baseMsg
-             |                  ^
-          299|         else null;
-
-       error: The option `hardware.graphics' does not exist. Definition values:
-       - In `/nix/store/xzzjh3ngvmbmi4vcyfclnpjifcn26y7m-source/hosts/default/configuration.nix':
-           {
-             enable = true;
-           }
+building the system configuration...
+warning: Git tree '/home/sahil/.dotfiles' is dirty
+these 8 derivations will be built:
+  /nix/store/s51hhpr927q00d7awlahyfl7fh124rks-unit-script-nixos-upgrade-start.drv
+  /nix/store/3sbnacccfi6d7bbbm3kqsml10v57jvsi-unit-nixos-upgrade.service.drv
+  /nix/store/0i4z9l4kjcmdw3bljn5jq3709y3vw70b-system-units.drv
+  /nix/store/1z1zirb7bjq4la180nq93a5w0n29q41f-etc.drv
+  /nix/store/p01znrbc1l3irqa5adkhbmf379vk6wg0-system-units.drv
+  /nix/store/4lmz72xcdnby4sqxmr1mr5gaq7bwvdxk-etc.drv
+  /nix/store/j1l90rrnj19wl2yhibjkkpyac2kkgjdv-nixos-system-nixos-no-nvidia-24.11.20240701.00d80d1.drv
+  /nix/store/9dz0g346v44nm5r7nv80n579m1yyzwvv-nixos-system-nixos-24.11.20240701.00d80d1.drv
+building '/nix/store/s51hhpr927q00d7awlahyfl7fh124rks-unit-script-nixos-upgrade-start.drv'...
+building '/nix/store/3sbnacccfi6d7bbbm3kqsml10v57jvsi-unit-nixos-upgrade.service.drv'...
+building '/nix/store/0i4z9l4kjcmdw3bljn5jq3709y3vw70b-system-units.drv'...
+building '/nix/store/p01znrbc1l3irqa5adkhbmf379vk6wg0-system-units.drv'...
+building '/nix/store/1z1zirb7bjq4la180nq93a5w0n29q41f-etc.drv'...
+building '/nix/store/4lmz72xcdnby4sqxmr1mr5gaq7bwvdxk-etc.drv'...
+building '/nix/store/j1l90rrnj19wl2yhibjkkpyac2kkgjdv-nixos-system-nixos-no-nvidia-24.11.20240701.00d80d1.drv'...
+building '/nix/store/9dz0g346v44nm5r7nv80n579m1yyzwvv-nixos-system-nixos-24.11.20240701.00d80d1.drv'...
+activating the configuration...
+setting up /etc...
+reloading user units for sahil...
+restarting sysinit-reactivation.target
+the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service
