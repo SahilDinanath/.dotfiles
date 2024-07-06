@@ -4,7 +4,6 @@ return {
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
-		dap.setup()
 		dapui.setup()
 		vim.keymap.set("n", "<F5>", function()
 			dap.continue()
