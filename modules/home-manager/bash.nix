@@ -2,7 +2,7 @@
 {
   programs.bash = {
     enable = true;
-    blesh = true;
+    blesh.enable = true;
     enableCompletion = true;
     sessionVariables = {
       FZF_DEFAULT_COMMAND = "fd --type f";
