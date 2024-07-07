@@ -23,4 +23,7 @@ error:
        (stack trace truncated; use '--show-trace' to show the full trace)
 
        error: The option `home-manager.users.sahil.programs.bash.blesh' does not exist. Definition values:
-       - In `/nix/store/4aq4bnww2lq70sincndq8b4lg3zh6q6s-source/modules/home-manager/bash.nix': true
+       - In `/nix/store/h4l2w1sv4db2qx9y12ak408vvhbbzp96-source/modules/home-manager/bash.nix':
+           {
+             enable = true;
+           }
