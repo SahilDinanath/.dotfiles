@@ -58,12 +58,8 @@
 
       ## BETTER DIRECTORY NAVIGATION ##
 
-      # Prepend cd to directory names automatically
-      shopt -s autocd 2> /dev/null
       # Correct spelling errors during tab-completion
       shopt -s dirspell 2> /dev/null
-      # Correct spelling errors in arguments supplied to cd
-      shopt -s cdspell 2> /dev/null
 
       ## SANE HISTORY DEFAULTS ##
 
@@ -100,6 +96,7 @@
       set -o vi
       bind '"jk":vi-movement-mode'
 
+      PS1='\[\e[1;32m\]\u@\h\[\e[m\]:\[\e[36m\]\w\[\e[m\]\$ '
     '';
   };
 }
