@@ -46,8 +46,8 @@
 
   home.file.".inputrc".text = ''
     set show-mode-in-prompt on
-    set vi-cmd-mode-string "\1\e[2 q\2"
-    set vi-ins-mode-string "\1\e[6 q\2"
+    set vi-cmd-mode-string "\[\e[2 q\]"
+    set vi-ins-mode-string "\[\e[6 q\]"
 
     # Use vi key bindings (optional, if you prefer vim-like navigation)
     set editing-mode vi
