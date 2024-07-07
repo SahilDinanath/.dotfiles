@@ -32,6 +32,7 @@
       fish_add_path ~/.dotfiles/scripts/
 
       set -gx FZF_DEFAULT_COMMAND "fd --type f"
+      set -gx FZF_DEFAULT_OPTS "--bind 'ctrl-y:accept'"
 
       set fish_greeting
     '';
