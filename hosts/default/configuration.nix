@@ -168,6 +168,7 @@
       fzf
       bat
       btop
+      starship
 
       ########
       #neovim#
