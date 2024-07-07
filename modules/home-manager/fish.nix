@@ -22,6 +22,12 @@
       set fish_cursor_external line
       set fish_cursor_visual block
 
+      bind -M insert -m default jk cancel repaint-mode
+      set -g fish_sequence_key_delay_ms 200
+
+      bind -M insert \cn down-or-search
+      bind -M insert \cp up-or-search
+
       fish_add_path ~/.dotfiles/scripts/
 
       set -gx FZF_DEFAULT_COMMAND "fd --type f"
