@@ -22,10 +22,11 @@ error:
 
        (stack trace truncated; use '--show-trace' to show the full trace)
 
-       error: The option `home-manager.users.sahil.programs.bash.interactiveShellInit' does not exist. Definition values:
-       - In `/nix/store/l2hk1d7x6fbi2k9131xij6xm5r2d64wd-source/modules/home-manager/bash.nix':
-           ''
-             set show-mode-in-prompt on
-             set vi-cmd-mode-string "\1\e[2 q\2"
-             set vi-ins-mode-string "\1\e[6 q\2"
-           ''
+       error: The option `home-manager.users.sahil.environment' does not exist. Definition values:
+       - In `/nix/store/kr7f7dgl1mw5272gp1gakcsjs30237w9-source/modules/home-manager/bash.nix':
+           {
+             etc = {
+               ".inputrc" = {
+                 text = ''
+                   set show-mode-in-prompt on
+           ...

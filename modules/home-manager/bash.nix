@@ -39,13 +39,40 @@
 
       set -o vi
       bind '"jk":vi-movement-mode'
+      set show-mode-in-prompt on
+      set vi-cmd-mode-string "\1\e[2 q\2"
+      set vi-ins-mode-string "\1\e[6 q\2"
 
+
+      # Use vi key bindings (optional, if you prefer vim-like navigation)
+      set editing-mode vi
+
+      # Enable case-insensitive tab completion
+      set completion-ignore-case on
+
+      # Show all possible completions immediately, instead of cycling through
+      set show-all-if-ambiguous on
+
+      # Display matches for ambiguous patterns immediately
+      set completion-query-items 1000
+
+      # Ignore duplicate entries in command history
+      set history-ignore-dups on
+
+      # Ignore commands that begin with a space in the history
+      set history-ignore-space on
+
+      # Enable colored output for completion listings
+      set colored-stats on
+
+      # Enable incremental search (emacs-style)
+      set incremental-search-history on
+
+      # Enable menu-complete, which allows cycling through completions with tab
+      TAB: menu-complete
+
+      # Enable case-insensitive matching when performing completion
+      set completion-ignore-case on
     '';
   };
-
-  environment.etc.".inputrc".text = ''
-    set show-mode-in-prompt on
-    set vi-cmd-mode-string "\1\e[2 q\2"
-    set vi-ins-mode-string "\1\e[6 q\2"
-  '';
 }
