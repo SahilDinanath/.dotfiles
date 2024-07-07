@@ -13,6 +13,13 @@
         end
       '';
     };
+    interactiveShellInit = ''
+      fish_add_path ~/.dotfiles/scripts/
+
+      set -gx FZF_DEFAULT_COMMAND "fd --type f"
+
+      set fish_greeting
+    '';
 
     shellInitLast = ''
       fzf --fish | source
