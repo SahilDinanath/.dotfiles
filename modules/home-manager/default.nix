@@ -11,6 +11,7 @@
     ./nvim.nix
     ./tmux.nix
     ./twm.nix
+    ./alacritty.nix
     #./fish.nix
   ];
 }
