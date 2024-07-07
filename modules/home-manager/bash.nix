@@ -10,6 +10,8 @@
     shellAliases = {
       lst = "eza --tree --color=auto --group-directories-first";
       ls = "eza --color=auto --group-directories-first";
+      ".." = "z ..";
+      "..." = "z ../..";
     };
     initExtra = ''
       #add scripts to path
@@ -39,9 +41,9 @@
 
       set -o vi
       bind '"jk":vi-movement-mode'
-
     '';
   };
+
   home.file.".inputrc".text = ''
     set show-mode-in-prompt on
     set vi-cmd-mode-string "\1\e[2 q\2"
