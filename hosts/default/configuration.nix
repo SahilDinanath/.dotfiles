@@ -199,6 +199,8 @@
       nerdfonts
       wl-clipboard
       xclip
+      lua
+      luarocks
 
       #miscellaneous
       lshw
