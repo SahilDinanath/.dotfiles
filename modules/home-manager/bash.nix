@@ -100,31 +100,6 @@
       set -o vi
       bind '"jk":vi-movement-mode'
 
-
-      # Function to determine mode and set cursor
-      set_bash_prompt() {
-          case "$1" in
-              insert)
-                  PS1="\[\e[5 q\]\u@\h:\w\$ "   # Blinking bar cursor
-                  ;;
-              command)
-                  PS1="\[\e[1 q\]\u@\h:\w\$ "   # Blinking block cursor
-                  ;;
-              *)
-                  PS1="\[\e[5 q\]\u@\h:\w\$ "   # Default to blinking bar cursor
-                  ;;
-          esac
-      }
-
-      # Default to insert mode
-      set_bash_prompt insert
-
-      # Trap to switch cursor based on mode
-      trap 'set_bash_prompt insert' VI_INSERT
-      trap 'set_bash_prompt command' VI_COMMAND
-
-      # Export the prompt command
-      export PROMPT_COMMAND='set_bash_prompt'
     '';
   };
 }
