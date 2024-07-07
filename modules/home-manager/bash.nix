@@ -27,7 +27,7 @@
       eval "$(direnv hook bash)"
 
       #setup starship
-      eval "$(starship init bash)"
+      #eval "$(starship init bash)"
 
       # set tmux to open on start of interactive shell
       # code below checks whether tmux exists on the system
