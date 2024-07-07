@@ -39,32 +39,92 @@
         tmux new-session -A -s main
       fi;
 
+      #sensible settings 
+      #https://github.com/mrzool/bash-sensible/blob/master/sensible.bash
+
+      #update window size after every command
+      shopt -s checkwinsize
+
+      #Automatically trim long paths in the prompt (requires Bash 4.x)
+      PROMPT_DIRTRIM=2
+
+      ##Smart TAB completion
+      # Perform file completion in a case insensitive fashion
+      bind "set completion-ignore-case on"
+      # Treat - and _ the same
+      bind "set completion-map-case on"
+      # Display matches for ambiguous patterns at first tab press
+      bind "set show-all-if-ambiguous on"
+
+      ## BETTER DIRECTORY NAVIGATION ##
+
+      # Prepend cd to directory names automatically
+      shopt -s autocd 2> /dev/null
+      # Correct spelling errors during tab-completion
+      shopt -s dirspell 2> /dev/null
+      # Correct spelling errors in arguments supplied to cd
+      shopt -s cdspell 2> /dev/null
+
+      ## SANE HISTORY DEFAULTS ##
+
+      # Append to the history file, don't overwrite it
+      shopt -s histappend
+
+      # Save multi-line commands as one command
+      shopt -s cmdhist
+
+      # Record each line as it gets issued
+      PROMPT_COMMAND='history -a'
+
+      # Huge history. Doesn't appear to slow things down, so why not?
+      HISTSIZE=500000
+      HISTFILESIZE=100000
+
+      # Avoid duplicate entries
+      HISTCONTROL="erasedups:ignoreboth"
+
+      # Don't record some commands
+      export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+
+      # Use standard ISO 8601 timestamp
+      # %F equivalent to %Y-%m-%d
+      # %T equivalent to %H:%M:%S (24-hours format)
+      HISTTIMEFORMAT='%F %T '
+
+      ## VIM Settings
+      bind "set show-mode-in-prompt on"
+
+      bind 'set vi-cmd-mode-string "\1\e[2 q\2"'
+      bind 'set vi-ins-mode-string "\1\e[6 q\2"'
+
       set -o vi
       bind '"jk":vi-movement-mode'
+
+
+      # Function to determine mode and set cursor
+      set_bash_prompt() {
+          case "$1" in
+              insert)
+                  PS1="\[\e[5 q\]\u@\h:\w\$ "   # Blinking bar cursor
+                  ;;
+              command)
+                  PS1="\[\e[1 q\]\u@\h:\w\$ "   # Blinking block cursor
+                  ;;
+              *)
+                  PS1="\[\e[5 q\]\u@\h:\w\$ "   # Default to blinking bar cursor
+                  ;;
+          esac
+      }
+
+      # Default to insert mode
+      set_bash_prompt insert
+
+      # Trap to switch cursor based on mode
+      trap 'set_bash_prompt insert' VI_INSERT
+      trap 'set_bash_prompt command' VI_COMMAND
+
+      # Export the prompt command
+      export PROMPT_COMMAND='set_bash_prompt'
     '';
   };
-
-  home.file.".inputrc".text = ''
-    set show-mode-in-prompt on
-    set vi-cmd-mode-string "\[\e[2 q\]"
-    set vi-ins-mode-string "\[\e[6 q\]"
-
-    # Use vi key bindings (optional, if you prefer vim-like navigation)
-    set editing-mode vi
-
-    # Enable case-insensitive tab completion
-    set completion-ignore-case on
-
-    # Show all possible completions immediately, instead of cycling through
-    set show-all-if-ambiguous on
-
-    # Display matches for ambiguous patterns immediately
-    set completion-query-items 1000
-
-    # Enable colored output for completion listings
-    set colored-stats on
-
-    # Enable case-insensitive matching when performing completion
-    set completion-ignore-case on 
-  '';
 }
