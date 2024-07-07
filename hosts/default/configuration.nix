@@ -243,7 +243,6 @@
 
   #######################################
   #developer settings
-  programs.bash.blesh.enable = true;
   programs.direnv.enable = true;
   documentation.dev.enable = true;
   ###################### i3 ############################################
