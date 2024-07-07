@@ -1,33 +1,32 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
 building the system configuration...
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-these 12 derivations will be built:
-  /nix/store/l13s2xqy4jdxc12wb9qhxnfnyl94s5kw-bashrc.drv
-  /nix/store/wh35g8w0z2mf1cvlix73s24v1ygmyzcp-home-manager-files.drv
-  /nix/store/7gj8xxsca60lznb22v0v1crpsbrwx30n-home-manager-generation.drv
-  /nix/store/1ypynz9fnmbxl95m85z17c4gqqc15gyp-unit-home-manager-sahil.service.drv
-  /nix/store/2xm91lvx307988m39sznlfmgflfmfgqf-unit-script-nixos-upgrade-start.drv
-  /nix/store/l0d0rnrj7fkhdrnh532fbz71zq44qkak-unit-nixos-upgrade.service.drv
-  /nix/store/hriqyj431bg9sams8amsg80d4mn1jgmx-system-units.drv
-  /nix/store/6himx00fk5w273s4qlnc23lp4zh15zv5-etc.drv
-  /nix/store/fsa0mv02x555fiv2hh0dykrp6pha6bp9-system-units.drv
-  /nix/store/qhk33why8b1s5dijg93f6s635rbf3gzn-etc.drv
-  /nix/store/b8dgl6fcklzl6kiagilylh43mskqw4ss-nixos-system-nixos-no-nvidia-24.11.20240703.9f4128e.drv
-  /nix/store/fvpk757n1cggfby6qs5alhfrf3j4fln0-nixos-system-nixos-24.11.20240703.9f4128e.drv
-building '/nix/store/2xm91lvx307988m39sznlfmgflfmfgqf-unit-script-nixos-upgrade-start.drv'...
-building '/nix/store/l13s2xqy4jdxc12wb9qhxnfnyl94s5kw-bashrc.drv'...
-building '/nix/store/l0d0rnrj7fkhdrnh532fbz71zq44qkak-unit-nixos-upgrade.service.drv'...
-building '/nix/store/wh35g8w0z2mf1cvlix73s24v1ygmyzcp-home-manager-files.drv'...
-building '/nix/store/7gj8xxsca60lznb22v0v1crpsbrwx30n-home-manager-generation.drv'...
-building '/nix/store/1ypynz9fnmbxl95m85z17c4gqqc15gyp-unit-home-manager-sahil.service.drv'...
-building '/nix/store/fsa0mv02x555fiv2hh0dykrp6pha6bp9-system-units.drv'...
-building '/nix/store/hriqyj431bg9sams8amsg80d4mn1jgmx-system-units.drv'...
-building '/nix/store/qhk33why8b1s5dijg93f6s635rbf3gzn-etc.drv'...
-building '/nix/store/6himx00fk5w273s4qlnc23lp4zh15zv5-etc.drv'...
-building '/nix/store/b8dgl6fcklzl6kiagilylh43mskqw4ss-nixos-system-nixos-no-nvidia-24.11.20240703.9f4128e.drv'...
-building '/nix/store/fvpk757n1cggfby6qs5alhfrf3j4fln0-nixos-system-nixos-24.11.20240703.9f4128e.drv'...
-activating the configuration...
-setting up /etc...
-reloading user units for sahil...
-restarting sysinit-reactivation.target
-restarting the following units: home-manager-sahil.service
+error:
+       … while calling the 'head' builtin
+
+         at /nix/store/dk2rpyb6ndvfbf19bkb2plcz5y3k8i5v-source/lib/attrsets.nix:1575:11:
+
+         1574|         || pred here (elemAt values 1) (head values) then
+         1575|           head values
+             |           ^
+         1576|         else
+
+       … while evaluating the attribute 'value'
+
+         at /nix/store/dk2rpyb6ndvfbf19bkb2plcz5y3k8i5v-source/lib/modules.nix:809:9:
+
+          808|     in warnDeprecation opt //
+          809|       { value = builtins.addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |         ^
+          810|         inherit (res.defsFinal') highestPrio;
+
+       (stack trace truncated; use '--show-trace' to show the full trace)
+
+       error: The option `home-manager.users.sahil.environment' does not exist. Definition values:
+       - In `/nix/store/wvhszvwh98p1aymzppmzxdlq8a2z6h90-source/modules/home-manager/bash.nix':
+           {
+             etc = {
+               inputrc = {
+                 txt = ''
+                   set show-mode-in-prompt on
+           ...
