@@ -4,6 +4,7 @@
     enable = true;
     enableCompletion = true;
     sessionVariables = {
+      FZF_DEFAULT_OPTS = "--bind 'ctrl-y:accept'";
       FZF_DEFAULT_COMMAND = "fd --type f";
     };
     shellAliases = {
