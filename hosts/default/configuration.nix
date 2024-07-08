@@ -4,7 +4,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   inputs,
   lib,
   ...
@@ -141,8 +140,9 @@
       "wheel"
     ];
     #software
-    packages =
-      (with pkgs; [
+    packages = (
+      with pkgs;
+      [
         firefox
         steam
         #apps
@@ -177,7 +177,7 @@
         ########
         #neovim#
         ########
-        #neovim
+        neovim
         #lsps
         gopls
         clang-tools
@@ -215,18 +215,19 @@
         #Gnome extensions
         gnomeExtensions.gsconnect
         gnomeExtensions.forge
-      ])
-      ++ (with pkgs-unstable; [ neovim ]);
+      ]
+    );
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages =
-    (with pkgs; [
-      #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  environment.systemPackages = (
+    with pkgs;
+    [
+      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       #  wget
-    ])
-    ++ (with pkgs-unstable; [ vim ]);
+    ]
+  );
 
   # Add font packages
   fonts.packages = with pkgs; [ nerdfonts ];

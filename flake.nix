@@ -27,7 +27,6 @@
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
-          inherit pkgs-unstable;
         };
         modules = [
           ./hosts/default/configuration.nix
