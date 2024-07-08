@@ -99,7 +99,9 @@
     };
   };
 
-  hardware.graphics.enable = true;
+  hardware.opengl = {
+    enable = true;
+  };
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -216,10 +218,12 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      #  wget
+    ])
+    ++ (with inputs.nixpkgs-unstable.pkgs; [ vim ]);
 
   # Add font packages
   fonts.packages = with pkgs; [ nerdfonts ];
@@ -342,5 +346,4 @@
     "nix-command"
     "flakes"
   ];
-
 }
