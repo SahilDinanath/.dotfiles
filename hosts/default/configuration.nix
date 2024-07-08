@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   inputs,
   lib,
   ...
@@ -140,80 +141,82 @@
       "wheel"
     ];
     #software
-    packages = with pkgs; [
-      firefox
-      steam
-      #apps
-      discord
-      alacritty
-      spotify
-      vlc
-      deja-dup
-      heroic
-      lutris
-      neofetch
-      vscode
-      qbittorrent
-      bottles
-      vesktop
-      libreoffice
-      #Games
-      prismlauncher
-      duckstation
+    packages =
+      (with pkgs; [
+        firefox
+        steam
+        #apps
+        discord
+        alacritty
+        spotify
+        vlc
+        deja-dup
+        heroic
+        lutris
+        neofetch
+        vscode
+        qbittorrent
+        bottles
+        vesktop
+        libreoffice
+        #Games
+        prismlauncher
+        duckstation
 
-      #terminal
-      tldr
-      fd
-      tmux
-      eza
-      zoxide
-      fzf
-      bat
-      btop
-      starship
+        #terminal
+        tldr
+        fd
+        tmux
+        eza
+        zoxide
+        fzf
+        bat
+        btop
+        starship
 
-      ########
-      #neovim#
-      ########
-      neovim
-      #lsps
-      gopls
-      clang-tools
-      lua-language-server
-      nixd
-      #debuggers
-      gdb
-      #formatters
-      nixfmt-rfc-style
-      stylua
-      #dev-packages
-      go
-      gcc
-      python3
-      gnumake
-      #tools
-      git
-      lazygit
-      direnv
-      #dependencies
-      cargo
-      ripgrep
-      nodejs_22
-      nerdfonts
-      wl-clipboard
-      xclip
-      lua
-      luarocks
+        ########
+        #neovim#
+        ########
+        #neovim
+        #lsps
+        gopls
+        clang-tools
+        lua-language-server
+        nixd
+        #debuggers
+        gdb
+        #formatters
+        nixfmt-rfc-style
+        stylua
+        #dev-packages
+        go
+        gcc
+        python3
+        gnumake
+        #tools
+        git
+        lazygit
+        direnv
+        #dependencies
+        cargo
+        ripgrep
+        nodejs_22
+        nerdfonts
+        wl-clipboard
+        xclip
+        lua
+        luarocks
 
-      #miscellaneous
-      lshw
-      man-pages
-      man-pages-posix
+        #miscellaneous
+        lshw
+        man-pages
+        man-pages-posix
 
-      #Gnome extensions
-      gnomeExtensions.gsconnect
-      gnomeExtensions.forge
-    ];
+        #Gnome extensions
+        gnomeExtensions.gsconnect
+        gnomeExtensions.forge
+      ])
+      ++ (with pkgs-unstable; [ neovim ]);
   };
 
   # List packages installed in system profile. To search, run:
@@ -223,7 +226,7 @@
       #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       #  wget
     ])
-    ++ (with inputs.nixpkgs-unstable.pkgs; [ vim ]);
+    ++ (with pkgs-unstable; [ vim ]);
 
   # Add font packages
   fonts.packages = with pkgs; [ nerdfonts ];

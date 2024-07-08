@@ -1,8 +1,32 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
 building the system configuration...
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-activating the configuration...
-setting up /etc...
-reloading user units for sahil...
-restarting sysinit-reactivation.target
-the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service
+error:
+       … while calling the 'head' builtin
+
+         at /nix/store/2nnisw4pxbifisbkg58hrnis9ycs5ah1-source/lib/attrsets.nix:1575:11:
+
+         1574|         || pred here (elemAt values 1) (head values) then
+         1575|           head values
+             |           ^
+         1576|         else
+
+       … while evaluating the attribute 'value'
+
+         at /nix/store/2nnisw4pxbifisbkg58hrnis9ycs5ah1-source/lib/modules.nix:809:9:
+
+          808|     in warnDeprecation opt //
+          809|       { value = builtins.addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |         ^
+          810|         inherit (res.defsFinal') highestPrio;
+
+       (stack trace truncated; use '--show-trace' to show the full trace)
+
+       error: attribute 'pkgs' missing
+
+       at /nix/store/h5xal3xn00awc5fch4b9vyl42a4k44xa-source/hosts/default/configuration.nix:226:14:
+
+          225|     ])
+          226|     ++ (with inputs.nixpkgs-unstable.pkgs; [ vim ]);
+             |              ^
+          227|

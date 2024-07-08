@@ -18,10 +18,16 @@
       nixpkgs-unstable,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    in
     {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
+          inherit pkgs-unstable;
         };
         modules = [
           ./hosts/default/configuration.nix
