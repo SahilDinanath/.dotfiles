@@ -1,57 +1,34 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
 building the system configuration...
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-these 21 derivations will be built:
-  /nix/store/9mlvl10xn8574yh6g368amk6sa70f845-init.vim.drv
-  /nix/store/j67nn8k041vzlzla7hwzjx7nzxfxw6vf-manifest.vim.drv
-  /nix/store/jgp338dpm5298ay3w07bncikqxjsfabk-neovim-0.10.0.drv
-  /nix/store/02iz4jzrgicmsiaann2iwkfvpjwkbzc1-home-manager-path.drv
-  /nix/store/1qxsiw0f5zrsd23z75yi5gy61mmsr5b7-man-paths.drv
-  /nix/store/8kfsg4wqla4yk5ksb347cpijnvgafg9f-man-cache.drv
-  /nix/store/pmrnsggsamx1sl1lw83l3gb88nfnpqm2-hm_.manpath.drv
-  /nix/store/3wvil1p3pm0yf6qsscwky7r4z5qfpz54-neovim-0.10.0-fish-completions.drv
-  /nix/store/zqzr116i5hmjzj8s14c18k0vwabnigs6-sahil-fish-completions.drv
-  /nix/store/vf623kgxb1jh6jpm6gdpy2y6db7cayv3-home-manager-files.drv
-  /nix/store/z143vbl9jwp2ml3nkwv404sydbbsxnj2-activation-script.drv
-  /nix/store/39vhq9gh6wsvxrp4alca78aw087lcgxv-home-manager-generation.drv
-  /nix/store/43l1prkmjczahp3088x1y2jkw91gkdsg-unit-home-manager-sahil.service.drv
-  /nix/store/vfpdf22hs9fwb242aijib2ngzry4mihf-unit-script-nixos-upgrade-start.drv
-  /nix/store/7skb03ha84mr6gadgcykyqkkw0yi6kpx-unit-nixos-upgrade.service.drv
-  /nix/store/wq6vnhbmraxxrmn6bka6c1wnkg25z7j0-system-units.drv
-  /nix/store/54bk4ip37mbzcnh40lqiqmvj3hzcx8xx-etc.drv
-  /nix/store/y251h3sh99nzmc8mhafn58drdmlxa33h-system-units.drv
-  /nix/store/qv1rbmbf2zmpdzlx700iim79dm2x49ig-etc.drv
-  /nix/store/im8mh26i1iznbdslxnsrp12an1l2b5a2-nixos-system-nixos-no-nvidia-24.05.20240707.1948467.drv
-  /nix/store/q5ldpyxdfs4np24f750fq18yrs4d50ml-nixos-system-nixos-24.05.20240707.1948467.drv
-these 2 paths will be fetched (0.00 MiB download, 0.01 MiB unpacked):
-  /nix/store/b9vb9x92qvhc57d2lq9li8yw6hl0s5r7-die-hook
-  /nix/store/g85xmbanh5h6rwx5jd4jriai36hgk6ja-make-shell-wrapper-hook
-building '/nix/store/vfpdf22hs9fwb242aijib2ngzry4mihf-unit-script-nixos-upgrade-start.drv'...
-copying path '/nix/store/b9vb9x92qvhc57d2lq9li8yw6hl0s5r7-die-hook' from 'https://cache.nixos.org'...
-building '/nix/store/9mlvl10xn8574yh6g368amk6sa70f845-init.vim.drv'...
-building '/nix/store/j67nn8k041vzlzla7hwzjx7nzxfxw6vf-manifest.vim.drv'...
-copying path '/nix/store/g85xmbanh5h6rwx5jd4jriai36hgk6ja-make-shell-wrapper-hook' from 'https://cache.nixos.org'...
-building '/nix/store/7skb03ha84mr6gadgcykyqkkw0yi6kpx-unit-nixos-upgrade.service.drv'...
-building '/nix/store/jgp338dpm5298ay3w07bncikqxjsfabk-neovim-0.10.0.drv'...
-error: builder for '/nix/store/jgp338dpm5298ay3w07bncikqxjsfabk-neovim-0.10.0.drv' failed with exit code 1;
-       last 9 log lines:
-       > structuredAttrs is enabled
-       > Running phase: patchPhase
-       > Running phase: updateAutotoolsGnuConfigScriptsPhase
-       > Running phase: configurePhase
-       > no configure script, doing nothing
-       > Running phase: buildPhase
-       > substituteStream() in derivation neovim-0.10.0: WARNING: '--replace' is deprecated, use --replace-{fail,warn,quiet}. (file '/nix/store/wv8sifkxz08klx563vsyqfm000gsk34i-neovim-0.10.0/share/applications/nvim.desktop')
-       > /nix/store/g85xmbanh5h6rwx5jd4jriai36hgk6ja-make-shell-wrapper-hook/nix-support/setup-hook: line 116: /nix/store/fiqp1r1bx4v8nlqwyy91z22nz3smll5i-neovim-0.10.0/bin/nvim-python3: Permission denied
-       > /nix/store/g85xmbanh5h6rwx5jd4jriai36hgk6ja-make-shell-wrapper-hook/nix-support/setup-hook: line 131: pop_var_context: head of shell_variables not a function context
-       For full logs, run 'nix log /nix/store/jgp338dpm5298ay3w07bncikqxjsfabk-neovim-0.10.0.drv'.
-error: 1 dependencies of derivation '/nix/store/02iz4jzrgicmsiaann2iwkfvpjwkbzc1-home-manager-path.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/1qxsiw0f5zrsd23z75yi5gy61mmsr5b7-man-paths.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/3wvil1p3pm0yf6qsscwky7r4z5qfpz54-neovim-0.10.0-fish-completions.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/39vhq9gh6wsvxrp4alca78aw087lcgxv-home-manager-generation.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/43l1prkmjczahp3088x1y2jkw91gkdsg-unit-home-manager-sahil.service.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/wq6vnhbmraxxrmn6bka6c1wnkg25z7j0-system-units.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/y251h3sh99nzmc8mhafn58drdmlxa33h-system-units.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/54bk4ip37mbzcnh40lqiqmvj3hzcx8xx-etc.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/qv1rbmbf2zmpdzlx700iim79dm2x49ig-etc.drv' failed to build
-error: 1 dependencies of derivation '/nix/store/q5ldpyxdfs4np24f750fq18yrs4d50ml-nixos-system-nixos-24.05.20240707.1948467.drv' failed to build
+these 11 derivations will be built:
+  /nix/store/2bh9rij06bw5kymm8bf3xci280aq459p-unit-script-nixos-upgrade-start.drv
+  /nix/store/7lgvjp883w60cpk4wgxymd1nzi5pnkrc-unit-nixos-upgrade.service.drv
+  /nix/store/y4139nrh8i9ycmkkmrvp9ms20phb2c5b-home-manager-files.drv
+  /nix/store/5snlqfqijd4zzh796qkx1q83a647fhqd-home-manager-generation.drv
+  /nix/store/gzfwdhbqvq6a1vly3cn9r6yyjps9s9n2-unit-home-manager-sahil.service.drv
+  /nix/store/y4pq4b904f3rcc6bkdhc3gm819jgdsjc-system-units.drv
+  /nix/store/7i4ym7ypayl8dy5077qn09hfr2gxy7mh-etc.drv
+  /nix/store/0w548l8c7gjswhv52adk0kaajc306s1x-nixos-system-nixos-no-nvidia-24.05.20240707.1948467.drv
+  /nix/store/wj9hc27n6mxwan8wvw9xdd0r475jwdzc-system-units.drv
+  /nix/store/v3ch5j8i640ijrm156dkwchzdgyccz75-etc.drv
+  /nix/store/2my33gb2asrb8yflzgahnppap5cbs3ap-nixos-system-nixos-24.05.20240707.1948467.drv
+building '/nix/store/2bh9rij06bw5kymm8bf3xci280aq459p-unit-script-nixos-upgrade-start.drv'...
+building '/nix/store/y4139nrh8i9ycmkkmrvp9ms20phb2c5b-home-manager-files.drv'...
+building '/nix/store/7lgvjp883w60cpk4wgxymd1nzi5pnkrc-unit-nixos-upgrade.service.drv'...
+building '/nix/store/5snlqfqijd4zzh796qkx1q83a647fhqd-home-manager-generation.drv'...
+building '/nix/store/gzfwdhbqvq6a1vly3cn9r6yyjps9s9n2-unit-home-manager-sahil.service.drv'...
+building '/nix/store/wj9hc27n6mxwan8wvw9xdd0r475jwdzc-system-units.drv'...
+building '/nix/store/y4pq4b904f3rcc6bkdhc3gm819jgdsjc-system-units.drv'...
+building '/nix/store/v3ch5j8i640ijrm156dkwchzdgyccz75-etc.drv'...
+building '/nix/store/7i4ym7ypayl8dy5077qn09hfr2gxy7mh-etc.drv'...
+building '/nix/store/0w548l8c7gjswhv52adk0kaajc306s1x-nixos-system-nixos-no-nvidia-24.05.20240707.1948467.drv'...
+building '/nix/store/2my33gb2asrb8yflzgahnppap5cbs3ap-nixos-system-nixos-24.05.20240707.1948467.drv'...
+stopping the following units: accounts-daemon.service
+activating the configuration...
+setting up /etc...
+reloading user units for sahil...
+restarting sysinit-reactivation.target
+reloading the following units: dbus.service
+restarting the following units: home-manager-sahil.service, polkit.service
+starting the following units: accounts-daemon.service
