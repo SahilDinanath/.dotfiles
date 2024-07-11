@@ -203,7 +203,7 @@
         nodejs_22
         nerdfonts
         wl-clipboard
-        xclip
+        xsel
         lua
         luarocks
 

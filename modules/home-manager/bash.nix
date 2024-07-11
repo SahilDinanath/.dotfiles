@@ -12,7 +12,6 @@
       ls = "eza --color=auto --group-directories-first";
       ".." = "z ..";
       "..." = "z ../..";
-      c = "clear";
     };
     initExtra = ''
       #add scripts to path
