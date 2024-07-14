@@ -88,13 +88,13 @@
       HISTTIMEFORMAT='%F %T '
 
       ## VIM Settings
-      bind "set show-mode-in-prompt on"
+      #bind "set show-mode-in-prompt on"
 
-      bind 'set vi-cmd-mode-string "\1\e[2 q\2"'
-      bind 'set vi-ins-mode-string "\1\e[6 q\2"'
+      #bind 'set vi-cmd-mode-string "\1\e[2 q\2"'
+      #bind 'set vi-ins-mode-string "\1\e[6 q\2"'
 
-      set -o vi
-      bind '"jk":vi-movement-mode'
+      #set -o vi
+      #bind '"jk":vi-movement-mode'
 
       PS1='\n\[\e[1;32m\]\u@\h\[\e[m\]:\[\e[36m\]\w\[\e[m\]> '
     '';
