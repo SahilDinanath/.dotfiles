@@ -96,7 +96,6 @@
       #set -o vi
       #bind '"jk":vi-movement-mode'
 
-      PS1='\n\[\e[1;32m\]\u@\h\[\e[m\]:\[\e[36m\]\w\[\e[m\]> '
     '';
   };
 }
