@@ -8,6 +8,7 @@ return {
 			ensure_installed = {
 				"go",
 				"c",
+				"rust",
 				"lua",
 				"vim",
 				"vimdoc",
