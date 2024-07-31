@@ -18,7 +18,7 @@
   ];
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_8;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -180,6 +180,7 @@
         neovim
         #lsps
         gopls
+        rust-analyzer
         clang-tools
         lua-language-server
         nixd
@@ -188,9 +189,11 @@
         #formatters
         nixfmt-rfc-style
         stylua
+        rustfmt
         #dev-packages
         go
         gcc
+        rustc
         python3
         gnumake
         #tools
