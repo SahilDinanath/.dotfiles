@@ -146,6 +146,7 @@
         firefox
         steam
         #apps
+        obsidian
         discord
         alacritty
         spotify
