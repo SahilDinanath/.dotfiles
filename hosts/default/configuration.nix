@@ -165,6 +165,7 @@
         duckstation
 
         #terminal
+        distrobox
         tldr
         fd
         tmux
