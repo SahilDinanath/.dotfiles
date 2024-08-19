@@ -138,12 +138,14 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     #software
     packages = (
       with pkgs;
       [
         firefox
+        chromium
         steam
         #apps
         obsidian
@@ -166,6 +168,7 @@
 
         #terminal
         distrobox
+        docker
         tldr
         fd
         tmux
@@ -259,6 +262,7 @@
   #developer settings
   programs.direnv.enable = true;
   documentation.dev.enable = true;
+  virtualisation.docker.enable = true;
   ###################### i3 ############################################
   #https://nixos.wiki/wiki/I3
   # links /libexec from derivations to /run/current-system/sw 
