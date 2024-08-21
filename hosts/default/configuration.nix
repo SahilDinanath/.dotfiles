@@ -341,8 +341,25 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 43000 ];
-  #networking.firewall.allowedUDPPorts = [ 43000 ];
+  networking.firewall.allowedTCPPorts = [
+    #minecraft-server
+    43000
+    #kde-connect
+    {
+      from = 1714;
+      to = 1764;
+    }
+
+  ];
+  networking.firewall.allowedUDPPorts = [
+    #minecraft-server
+    43000
+    #kde-connect
+    {
+      from = 1714;
+      to = 1764;
+    }
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
