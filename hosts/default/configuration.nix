@@ -344,16 +344,21 @@
   networking.firewall.allowedTCPPorts = [
     #minecraft-server
     43000
-    #kde-connect
-    {
-      from = 1714;
-      to = 1764;
-    }
 
   ];
   networking.firewall.allowedUDPPorts = [
     #minecraft-server
     43000
+  ];
+
+  networking.firewall.allowedTCPPortRanges = [
+    #kde-connect
+    {
+      from = 1714;
+      to = 1764;
+    }
+  ];
+  networking.firewall.allowedUDPPortRanges = [
     #kde-connect
     {
       from = 1714;
