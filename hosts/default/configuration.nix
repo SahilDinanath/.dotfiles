@@ -146,6 +146,7 @@
         chromium
         steam
         #apps
+        kdeconnect
         obsidian
         discord
         alacritty
