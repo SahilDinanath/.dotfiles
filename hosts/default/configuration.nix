@@ -18,7 +18,7 @@
   ];
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_6_8;
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -53,7 +53,7 @@
   hardware.bluetooth.powerOnBoot = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  #sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -99,9 +99,7 @@
     };
   };
 
-  hardware.opengl = {
-    enable = true;
-  };
+  hardware.graphics.enable = true;
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
