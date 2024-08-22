@@ -13,6 +13,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+
     # Extra 
     ../../modules/nixos/default.nix
   ];
@@ -99,7 +100,7 @@
     };
   };
 
-  hardware.graphics.enable = true;
+  hardware.opengl.enable = true;
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -146,7 +147,6 @@
         chromium
         steam
         #apps
-        kdeconnect
         obsidian
         discord
         alacritty
@@ -181,7 +181,8 @@
         ########
         #neovim#
         ########
-        neovim
+        inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
+        #neovim
         #lsps
         gopls
         rust-analyzer
@@ -220,7 +221,7 @@
         man-pages-posix
 
         #Gnome extensions
-        gnomeExtensions.gsconnect
+        gnomeExtensions.gsconnect # kde connect for gnome
         gnomeExtensions.forge
       ]
     );
