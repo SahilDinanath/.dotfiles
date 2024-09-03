@@ -1,30 +1,31 @@
 warning: Git tree '/home/sahil/.dotfiles' is dirty
 building the system configuration...
 warning: Git tree '/home/sahil/.dotfiles' is dirty
-error:
-       … while calling the 'head' builtin
-
-         at /nix/store/d9gbq853jvbccrz5g3y0irbwgc57w137-source/lib/attrsets.nix:1575:11:
-
-         1574|         || pred here (elemAt values 1) (head values) then
-         1575|           head values
-             |           ^
-         1576|         else
-
-       … while evaluating the attribute 'value'
-
-         at /nix/store/d9gbq853jvbccrz5g3y0irbwgc57w137-source/lib/modules.nix:821:9:
-
-          820|     in warnDeprecation opt //
-          821|       { value = addErrorContext "while evaluating the option `${showOption loc}':" value;
-             |         ^
-          822|         inherit (res.defsFinal') highestPrio;
-
-       (stack trace truncated; use '--show-trace' to show the full trace)
-
-       error: A definition for option `networking.firewall.allowedTCPPorts."[definition 1-entry 2]"' is not of type `16 bit unsigned integer; between 0 and 65535 (both inclusive)'. Definition values:
-       - In `/nix/store/haqvr0115bc90xs3c4sf3cfbdrki2agq-source/hosts/default/configuration.nix':
-           {
-             from = 1714;
-             to = 1764;
-           }
+these 11 derivations will be built:
+  /nix/store/h7bw886n8p1l81rxs3ghh75ypszz2j74-unit-script-nixos-upgrade-start.drv
+  /nix/store/9bz6rmq21sfwl09lgmmi9ziivjz27fc4-unit-nixos-upgrade.service.drv
+  /nix/store/fvv5rs8ss81fg4kdpwn1jn1l0xm9lizf-firewall-start.drv
+  /nix/store/amyp2zp3nisx0ciyc4yb2cm140hyv5ng-firewall-reload.drv
+  /nix/store/zwpnnbirbdpysyavhc3f22hrndsi8mv4-unit-firewall.service.drv
+  /nix/store/lwkg5fd7pk3lf5clng0mjqhd840frh5n-system-units.drv
+  /nix/store/kq6lkbqpgg27g5l2r8vhp018djnflf01-etc.drv
+  /nix/store/49hxlmkmmcn1fz7xa89vxnqbnax8gl9m-nixos-system-nixos-no-nvidia-24.11.20240818.8a33541.drv
+  /nix/store/azxllc4dw89y7g1chl4c5kq4xbdpj1iq-system-units.drv
+  /nix/store/k3cpxap9xhaqli6q9n68g3nsd415sl16-etc.drv
+  /nix/store/c5dxb1dm9nykz1d9bvdm231cv3r6hnm1-nixos-system-nixos-24.11.20240818.8a33541.drv
+building '/nix/store/fvv5rs8ss81fg4kdpwn1jn1l0xm9lizf-firewall-start.drv'...
+building '/nix/store/h7bw886n8p1l81rxs3ghh75ypszz2j74-unit-script-nixos-upgrade-start.drv'...
+building '/nix/store/amyp2zp3nisx0ciyc4yb2cm140hyv5ng-firewall-reload.drv'...
+building '/nix/store/9bz6rmq21sfwl09lgmmi9ziivjz27fc4-unit-nixos-upgrade.service.drv'...
+building '/nix/store/zwpnnbirbdpysyavhc3f22hrndsi8mv4-unit-firewall.service.drv'...
+building '/nix/store/azxllc4dw89y7g1chl4c5kq4xbdpj1iq-system-units.drv'...
+building '/nix/store/lwkg5fd7pk3lf5clng0mjqhd840frh5n-system-units.drv'...
+building '/nix/store/k3cpxap9xhaqli6q9n68g3nsd415sl16-etc.drv'...
+building '/nix/store/kq6lkbqpgg27g5l2r8vhp018djnflf01-etc.drv'...
+building '/nix/store/49hxlmkmmcn1fz7xa89vxnqbnax8gl9m-nixos-system-nixos-no-nvidia-24.11.20240818.8a33541.drv'...
+building '/nix/store/c5dxb1dm9nykz1d9bvdm231cv3r6hnm1-nixos-system-nixos-24.11.20240818.8a33541.drv'...
+activating the configuration...
+setting up /etc...
+reloading user units for sahil...
+restarting sysinit-reactivation.target
+reloading the following units: firewall.service

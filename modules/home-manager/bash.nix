@@ -10,6 +10,7 @@
     shellAliases = {
       lst = "eza --tree --color=auto --group-directories-first";
       ls = "eza --color=auto --group-directories-first";
+      exp = "xdg-open";
       ".." = "z ..";
       "..." = "z ../..";
     };

@@ -54,7 +54,7 @@
   hardware.bluetooth.powerOnBoot = true;
 
   # Enable sound with pipewire.
-  #sound.enable = true;
+  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -184,6 +184,7 @@
         inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
         #neovim
         #lsps
+        pyright
         gopls
         rust-analyzer
         clang-tools
@@ -195,6 +196,7 @@
         nixfmt-rfc-style
         stylua
         rustfmt
+        black
         #dev-packages
         go
         gcc
