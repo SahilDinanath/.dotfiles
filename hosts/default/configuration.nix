@@ -14,7 +14,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
 
-    # Extra 
+    # Extra
     ../../modules/nixos/default.nix
   ];
 
@@ -69,6 +69,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  services.tailscale.enable = true;
 
   #add Nvidia support if not in specialisation aka no-nvidia
   #Nvidia GPU support
@@ -147,6 +149,7 @@
         chromium
         steam
         #apps
+        chessx
         obsidian
         discord
         alacritty
@@ -157,10 +160,12 @@
         lutris
         neofetch
         vscode
-        qbittorrent
+        transmission_4-gtk
+        # qbittorrent
         bottles
         vesktop
         libreoffice
+        bitwarden
         #Games
         prismlauncher
         duckstation
@@ -267,7 +272,7 @@
   virtualisation.docker.enable = true;
   ###################### i3 ############################################
   #https://nixos.wiki/wiki/I3
-  # links /libexec from derivations to /run/current-system/sw 
+  # links /libexec from derivations to /run/current-system/sw
   environment.pathsToLink = [ "/libexec" ];
   services.xserver = {
 
