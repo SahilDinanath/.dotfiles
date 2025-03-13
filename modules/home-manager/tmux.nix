@@ -11,10 +11,11 @@
     prefix = "C-Space";
     # makes tmux not mess up colours
     terminal = "tmux-256color";
-    #shell = "${pkgs.fish}/bin/fish";
+    # shell = "${pkgs.zsh}/bin/zsh";
+    sensibleOnTop = false;
 
     plugins = with pkgs; [
-      tmuxPlugins.sensible
+      # tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator
       {
         plugin = tmuxPlugins.resurrect;
@@ -28,8 +29,9 @@
     ];
     extraConfig = ''
       #add whatever this does
-      set-option -a terminal-features 'alacritty:RGB'
+      set-option -as terminal-features ',alacritty*:RGB'
       set-option -g focus-events on
+
 
       #options
       set -g renumber-windows on
@@ -59,6 +61,9 @@
       bind -r k resize-pane -U 5
       bind -r l resize-pane -R 5
       bind -r h resize-pane -L 5
+
+      #add this so that tmux uses bash 5.2 instead of 3.2 on Nix Darwin, this is a bug
+      set -g default-command "$SHELL"
     '';
   };
 }

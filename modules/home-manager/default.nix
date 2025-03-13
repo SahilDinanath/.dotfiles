@@ -13,5 +13,6 @@
     ./twm.nix
     ./alacritty.nix
     ./fish.nix
+    ./zsh.nix
   ];
 }
